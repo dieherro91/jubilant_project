@@ -1,2 +1,19 @@
-esta es la rama de Ivonne Rocio Calpa
-Gracias Diego
+Bucaramanga, Septiembre 16 2021
+
+DESCRIPCION DEL PROYECTO JUBILANT
+
+Siguiendo la metodologia SCRUM vamos a desarrollar las actividades necesarias para entregar el software que atienda a los requerimientos de los modulos del sistema de
+información de una empresa de manufactura.  El grupo de proyecto esta conformado por 5 estudiantes del programa por ciclos del Ministerio de las TIC de Colombia. Todos los 
+integrantes vamos a desempeñar por rotación los 5 roles establecidos dentro de la metodologia.
+
+PRESENTACION PERSONAL
+
+Mi nombre es Ivonne Rocio Calpa Jerez, naci y vivo en Bucaramanga, tengo un titulo de Ingeniera de Sistemas de la Universidad Industrial de Santander y los ultimos 20 años 
+me he desempeñado profesionalmente en cargos administrativos y financieros de una empresa de Bucaramanga llamada LA MUELA SAS, es una empresa dedicada a la importacion y
+comercializacion de equipos y dispositivos medicos del sector salud y de seguridad Industrial.
+
+Soy madre de dos jovenes de 18 y 20 años respectivamente, tengo la gran expectativa de obtener las bases y conocimientos necesarios para reiniciar mi actividad profesional 
+en el area de tecnología de información. Me encanta aprender y encontrar cada dia la manera de hacer mejor las cosas.  
+
+Este proyecto es un reto muy grande y voy a poner todo de mi parte para que todos los integrantes del grupo podamos al finalizar sentirnos satisfachos de los resultados y del 
+proceso realizado.
