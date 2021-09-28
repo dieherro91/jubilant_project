@@ -1,0 +1,98 @@
+
+.cuadro{
+    position: relative;
+    left:50% ;
+    
+}
+.details{
+    position: relative;
+    bottom: 6rem;
+    left:50% ;
+    
+}
+.titulo{
+    bottom: 4rem;
+    margin-bottom: 4rem;
+    font-family: 'Rockwell', Courier, monospace;
+}
+
+.login{
+    position: relative;
+    bottom:3rem;
+    left: 2.8rem;
+}
+
+.usuario{
+    margin: 1rem;
+}
+.lista{
+    position: relative;
+    bottom: 1rem;
+    margin:1rem;
+}
+.contra{
+    margin: 1rem;
+}
+
+.contra2{
+    position: relative;
+    left:1.2rem;    
+    width: 16rem;
+    height: 2rem;
+    font-size: medium;
+}
+.usua{
+    position: relative;
+    left:1.2rem;
+    width: 16rem;
+    height: 2rem;
+    font-size:medium;
+}
+
+.lista{
+    position: relative;
+    left:1.2rem;
+    width: 16.5rem;
+    height: 2.5rem;
+    font-size: medium;
+}
+select{
+    font-family:'Rockwell', Courier, monospace;
+}
+.ini{
+position: relative;
+left:2.3rem;
+width: 16.6rem;
+height: 3rem;
+background-color: darkorange;
+color: black;
+font-size: large;
+}
+.ini:active{
+    background-color: darkgray;
+}
+input{
+    font-family: 'Rockwell', Courier, monospace;
+}
+p.linea{
+    position: relative;
+    right: 3rem;
+}
+.crear{
+    position: relative;
+    bottom: 1rem;
+    left: 2rem;
+    font-family:'Rockwell', Courier, monospace;
+}
+.recor{
+    font-family:'Rockwell', Courier, monospace;
+}
+.olvido{
+    font-family:'Rockwell', Courier, monospace;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    color: rgb(54, 2, 92);
+}
