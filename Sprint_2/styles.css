@@ -1,15 +1,23 @@
+/* variables globales*/
+:root{
+    --sidebar_length:19.7657%;
+    --margin_top:1.5221%;
+    --margin_bottom:1.5221%;
+    --margin_left:0.73206%;
+    --margin_right:0.73206%;
 
-
-
-
+}
+/* */
+/* */
+/* */
 .navbar{
     overflow: hidden;
     position: fixed;
     display:block;
-    top:1.5221%;
-    left: 19.7657%;
+    top:var(--margin_top);
+    left: var(--sidebar_length);
     height: 26.1796%;
-    right: 0.73206%;
+    right: var(--margin_top);
     border: 1px solid;
     background-color:#fffff2;
     z-index: 5;
@@ -39,8 +47,8 @@
 }
 #logout_button{
     position:absolute;
-    top:1.5221%;
-    right: 0.73206%;
+    top:var(--margin_top);
+    right: var(--margin_right);
     width: 60px;
     height: 30px;
     font-size:1rem;
@@ -49,10 +57,10 @@
 
 .sidebar {
     position: fixed;
-    top:1.5221%;
-    bottom:1.5221%;
+    top:var(--margin_top);
+    bottom:var(--margin_bottom);
     width: 18.3016%;
-    left: 0.73206%;
+    left: var(--margin_left);
     background: #696969;
     
 }
@@ -112,22 +120,23 @@
 }
 #controles{
     position: relative;
-    left:300px;
-    right:300px;
-    width: 1012px;
+    left: var(--sidebar_length);
+    width: 79%;
     top:182px;
     background-color:rgb(51, 153,213);
+    border: 1px solid;
 }
 #table_display{
     overflow:auto;
     position: relative;
-    left:300px;
-    right:300px;
-    width: 1012px;
+    left: var(--sidebar_length);
+    
+    width: 79%;
     top: 300px;
     background-color:rgb(51, 153,213);
     height: 100px;
     z-index: 4;
+    border: 1px solid;
     
 }
 
