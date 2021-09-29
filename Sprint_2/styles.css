@@ -5,7 +5,6 @@
     --margin_bottom:1.5221%;
     --margin_left:0.73206%;
     --margin_right:0.73206%;
-
 }
 /* */
 /* */
@@ -63,6 +62,10 @@
     left: var(--margin_left);
     background: #696969;
     
+    
+}
+.sidebar a{
+    color: #ddcdcd;
 }
 .sidebar a:hover {
 
@@ -122,30 +125,75 @@
     position: relative;
     left: var(--sidebar_length);
     width: 79%;
-    top:182px;
-    background-color:rgb(51, 153,213);
+    top:27.7%;
+    height: 18%;
+    background-color:#76c9f8;
     border: 1px solid;
+}
+label{
+    width: 32%; 
+    float:left;
+}
+input{
+    width: 49%;
+    float:right;
+    
+}
+.inputs{
+    position: relative;
+    display: block;
+    float:left;
+    margin:1%;
+    padding: 1%;
+    background: #eee;
+    height:15%;
+    width: 26%;
+    
+}
+.buttons_venta{
+    position: absolute;
+    top:20%;
+    right: 0;
+}
+#add_venta{
+    margin: 5%;
+    padding:2%;
+    width: 70%;
+    top:30px;
+}
+#clean_venta{
+    margin: 5%;
+    padding:2%;
+    width: 70%;
 }
 #table_display{
     overflow:auto;
     position: relative;
     left: var(--sidebar_length);
-    
     width: 79%;
-    top: 300px;
+    top: 30%;
+    bottom:var(--margin_bottom);
     background-color:rgb(51, 153,213);
-    height: 100px;
+    height: 46%;
     z-index: 4;
-    border: 1px solid;
-    
+    border: 1px solid;  
 }
-
-.table_ventas tr{
+.table_ventas{
+    background: #76c9f8;
+    width: 100%;
+}
+.table_ventas th{
+    position: sticky;
+    top: 0;
+    z-index: 10; 
+    background: #fff;
     text-align: center;
     
+}
+.table_ventas tr{
+    text-align: center;  
 }
 .table_ventas td{
     text-align: center;
-    width: 150px;
     
 }
