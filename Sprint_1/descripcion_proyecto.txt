@@ -1,0 +1,54 @@
+DESCRIPCION DEL PROYECTO JUBILANT
+
+Siguiendo la metodologia SCRUM vamos a desarrollar las actividades necesarias para entregar 
+el software que atienda a los requerimientos de los modulos del sistema deinformación de una
+empresa de manufactura.  El grupo de proyecto esta conformado por 5 estudiantes del programa 
+por ciclos del Ministerio de las TIC de Colombia. Todos los integrantes vamos a desempeñar por
+rotación los 5 roles establecidos dentro de la metodologia.
+
+
+Presentacion recopilacion de las presentaciones.
+
+Ivonne
+
+Mi nombre es Ivonne Rocio Calpa Jerez, naci y vivo en Bucaramanga, tengo un titulo de Ingeniera
+de Sistemas de la Universidad Industrial de Santander y los ultimos 20 años me he desempeñado
+profesionalmente en cargos administrativos y financieros de una empresa de Bucaramanga llamada
+LA MUELA SAS, es una empresa dedicada a la importacion y comercializacion de equipos y dispositivos
+medicos del sector salud y de seguridad Industrial.
+Soy madre de dos jovenes de 18 y 20 años respectivamente, tengo la gran expectativa de obtener 
+las bases y conocimientos necesarios para reiniciar mi actividad profesional en el area de 
+tecnología de información. Me encanta aprender y encontrar cada dia la manera de hacer mejor las cosas.  
+Este proyecto es un reto muy grande y voy a poner todo de mi parte para que todos los
+integrantes del grupo podamos al finalizar sentirnos satisfachos de los resultados y del 
+proceso realizado.
+
+
+Jhon
+Mi nombre es Jhon Alexander Murillo Murillo, tengo 21 años soy estudiante 
+técnico en sistemas en la cual me encuentro realizando prácticas laborales
+soy fanático al deporte, me gusta jugar futbol, socializarme con persona y 
+compartir ideas. Mi amor por la programación nació desde que estudié esa materia
+en mi educación técnica y quiero seguirlo profundizarlo para poder convertirme en
+un desarrollador web. 
+
+Diego
+Mi nombre es Diego Hernando Romero Roa, tengo 30 años soy estudiante de 
+ingeniería química de decimo semestre, me gusta programar y me gusta el 
+desarrollo web, me gusta la música y la cerveza y hablar con las personas. 	
+
+
+<(￣︶￣)>         <(￣︶￣)>         	<(￣︶￣)>         	<(￣︶￣)>
+
+Francisco
+Mi nombre es Francisco Javier Avendano Diaz, 
+soy economista con estudios en Ciencias de la Computacion del Seattle Central College
+y candidato a Master of Business Administration de la 
+University Canada West. Con experiencia profesional en diseno 
+y direccion de projectos, bienes raices y tecnologias de la informacion
+y comunicacion. Actualmente radicado en la ciudad de Seattle WA, USA.
+
+
+Jesus
+Hola, mi nombre es Jesús Redondo tengo 19 años, soy de sincelejo-sucre me carazterizo por ser una 
+persona elocuente y con muchas ganas de aprender cada dia mas.
