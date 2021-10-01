@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <title>CSS</title>
+</head>
+<body>
+    <div class="cuadro">
+    <div>
+       <img src="imagenes/login2.jpg" class="login">
+    </div>
+    </div>
+    <div class="details">
+    <div>
+        <h1 class="titulo">━━ Iniciar sesión ━━</h1>
+    </div>
+    <form action="">
+            <div class="usuario">
+                <input type="text" class="usua" name="email" id="email" placeholder="Ingresa tu nombre de usuario" required>
+            </div>
+            <div class="contra">
+                <input type="password" class="contra2" name="contra" id="contra" placeholder="Ingresa tu contraseña" required>
+            </div>
+            <select name="Rol" class="lista">
+                <option value="" readonly><font face='Rockwell'>Rol</option></font>
+                <option value="Power owner">Power owner</option>
+                <option value="Scrum master">Scrum master</option>
+                <option value="Desarrollador">Desarrollador</option>
+            </select>
+            <div class="iniciar">
+                <input type="button" id="inicio" class="ini" value="Ingresar">
+            </div>
+            <br>
+            <label for="recor" class="recor">Recordar siempre</label>
+        <input type="checkbox" name="recordar" id="recordar">
+        <label for="olvido" class="olvido">Olvidaste la contraseña?</label>
+        <b><p class="linea">━━━━━━━━━━━━━━━━━━━━━━━━━━━</p></b>
+        <div class="crear">No tienes cuenta?
+            <a href="https://mail.google.com/mail/u/0/" target="_blank">Registrate</a>
+        </div>
+        </div>
+    </form>
+</body>
+</html>
