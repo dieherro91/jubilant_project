@@ -151,6 +151,18 @@ input{
     width: 60%;
     
 }
+
+.inputDescripcion{
+    position: relative;
+    display: block;
+    float:left;
+    margin:2%;
+    padding: 2.5%;
+    background: #eee;
+    height:20%;
+    width: 60%;
+    
+}
 .buttons_venta{
     position: absolute;
     bottom: 1px;;
