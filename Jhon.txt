@@ -1,1 +1,6 @@
-Hola soy Jhon
+Mi nombre es Jhon Alexander Murillo Murillo, tengo 21 años soy estudiante 
+técnico en sistemas en la cual me encuentro realizando prácticas laborales
+soy fanático al deporte, me gusta jugar futbol, socializarme con persona y 
+compartir ideas. Mi amor por la programación nació desde que estudié esa materia
+en mi educación técnica y quiero seguirlo profundizarlo para poder convertirme en
+un desarrollador web. 
