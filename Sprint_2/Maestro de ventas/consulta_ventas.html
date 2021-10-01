@@ -1,0 +1,277 @@
+<html>
+    <head>
+        <title>consulta de ventas</title>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+	
+    </head>
+    <body>
+        
+        <aside class="sidebar">
+            <nav class="nav">
+                <div id="user_block">
+                    <img id="user_image" src="../assets/silueta.jpg">
+                    <h5 id="user_name">Usuario 1</h5>
+                    <h6 id="status_name">admin</h6>
+                </div>
+                <hr>
+                <ul>
+                    <li><a href="home.html">home</a></li>
+                    <li><a href="registro_productos.html">Productos</a></li>
+                    <li><a href="registro_ventas.html">Ventas</a></li>
+                    <li><a href="control_usuarios.html">Usuarios</a></li>
+                </ul>  
+            </nav>
+            <nav class="nav_botton">
+                <ul>
+                    <li><a href="about_us.html">about us</a></li>
+                </ul>
+            </nav>
+            
+        </aside>
+        
+        
+        <nav class="navbar">
+            <h1 id="titulo">Maestro de ventas</h1>
+            <img id="logo_image" src="../assets/sica_blue.png">
+            <button id="logout_button">logout</button>
+            
+        </nav>
+        
+        <br>
+        <div id= "controles">
+            <div class="inputs">
+                <label>Id Cliente: </label>
+                <input type="number">
+            </div>  
+            <div class="inputs">
+                <label class="cliente">Cliente: </label>
+                <input type="text">
+            </div>
+            <div class="inputs">
+                <label>Estado: </label>
+                <input type="text">
+            </div>
+            <div class="inputs">
+                <label>Categoria: </label>
+                <input type="text">
+            </div>
+            <div class="inputs">
+                <label>Fecha: </label>
+                <input type="text">
+            </div>
+            <div class="inputs">
+                <label>Factura: </label>
+                <input type="number">
+            </div>
+            <div class="buttons_venta">
+                <button id="add_venta">Buscar</button>
+                <button id="clean_venta">Actualizar</button> 
+            </div>
+             
+            
+                    
+        </div>
+        
+        <br>
+        <div id="table_display">
+            <table class= "table_ventas">
+                <tr>
+                  <th>Id Ciente</th>
+                  <th>Nombre cliente</th>
+                  <th>Id venta</th>
+                  <th>Factura</th>
+                  <th>Categoria</th>
+                  <th>Fecha inicio</th>
+                  <th>Fecha final</th>
+                  <th>Estado</th>
+                </tr>
+                <tr>
+                  <td>1125466284</td>
+                  <td>RODOLFO ROMERO</td>
+                  <td>1684596</td>
+                  <td>12356</td>
+                  <td>TV-INTERNET</td>
+                  <td>27-09-2021</td>
+                  <td>27-10-2021</td>
+                  <td>ACTIVO</td>
+
+                </tr>
+                <tr>
+                    <td>532684571</td>
+                    <td>MARINA ESPINOSA</td>
+                    <td>7459632</td>
+                    <td>45698</td>
+                    <td>TELEFONIA</td>
+                    <td>28-09-2021</td>
+                    <td>28-10-2021</td>
+                    <td>ACTIVO</td>
+                </tr>
+                <tr>
+                    <td>16989532</td>
+                    <td>ANDRES MARIN</td>
+                    <td>1457846</td>
+                    <td>45895</td>
+                    <td>TV-TELEFONIA</td>
+                    <td>26-08-2021</td>
+                    <td>26-09-2021</td>
+                    <td>INACTIVO</td>
+                </tr>
+                <tr>
+                   <td>78458996</td>
+                   <td>JHON MURILLO</td>
+                   <td>1689565</td>
+                   <td>78459</td>
+                   <td>COMPLETA</td>
+                   <td>28-09-201</td>    
+                   <td>28-10-2021</td>
+                   <td>ACTIVO</td>
+                </tr>
+                <tr>
+                    <td>745895236</td>
+                    <td>YENSI VAZQUES</td>
+                    <td>3646975</td>
+                    <td>78495</td>
+                    <td>INTERNET</td>
+                    <td>29-09-2021</td>
+                    <td>29-10-2021</td>
+                    <td>ACTIVO</td>
+                </tr>
+                <tr>
+                    <td>16859762</td>
+                    <td>KEVIN ROJAS</td>
+                    <td>2493564</td>
+                    <td>15968</td>
+                    <td>TV</td>
+                    <td>20-08-2021</td>
+                    <td>20-09-2021</td>
+                    <td>INACTIVO</td>
+                </tr>
+                <tr>
+                   <td>478964355</td>
+                   <td>BYRON MORENO</td>
+                   <td>2365489</td>
+                   <td>75326</td>
+                   <td>COMPLETA</td>
+                   <td>27-09-2021</td>
+                   <td>27-10-2021</td>
+                   <td>ACTIVO</td>
+                </tr>
+                <tr>
+                    <td>748659326</td>
+                    <td>SOFIA BUSTAMANTE</td>
+                    <td>4521487</td>
+                    <td>95634</td>
+                    <td>TELEFONIA</td>
+                    <td>28-09-2021</td>
+                    <td>28-10-2021</td>
+                    <td>ACTIVO</td>
+                </tr>
+                <tr>
+                    <td>1125466284</td>
+                    <td>RODOLFO ROMERO</td>
+                    <td>1684596</td>
+                    <td>12356</td>
+                    <td>TV-INTERNET</td>
+                    <td>27-09-2021</td>
+                    <td>27-10-2021</td>
+                    <td>ACTIVO</td>
+  
+                  </tr>
+                  <tr>
+                      <td>532684571</td>
+                      <td>MARINA ESPINOSA</td>
+                      <td>7459632</td>
+                      <td>45698</td>
+                      <td>TELEFONIA</td>
+                      <td>28-09-2021</td>
+                      <td>28-10-2021</td>
+                      <td>ACTIVO</td>
+                  </tr>
+                  <tr>
+                      <td>16989532</td>
+                      <td>ANDRES MARIN</td>
+                      <td>1457846</td>
+                      <td>45895</td>
+                      <td>TV-TELEFONIA</td>
+                      <td>26-08-2021</td>
+                      <td>26-09-2021</td>
+                      <td>INACTIVO</td>
+                  </tr>
+                  <tr>
+                     <td>78458996</td>
+                     <td>JHON MURILLO</td>
+                     <td>1689565</td>
+                     <td>78459</td>
+                     <td>COMPLETA</td>
+                     <td>28-09-201</td>    
+                     <td>28-10-2021</td>
+                     <td>ACTIVO</td>
+                  </tr>
+                  <tr>
+                      <td>745895236</td>
+                      <td>YENSI VAZQUES</td>
+                      <td>3646975</td>
+                      <td>78495</td>
+                      <td>INTERNET</td>
+                      <td>29-09-2021</td>
+                      <td>29-10-2021</td>
+                      <td>ACTIVO</td>
+                  </tr>
+                  <tr>
+                      <td>16859762</td>
+                      <td>KEVIN ROJAS</td>
+                      <td>2493564</td>
+                      <td>15968</td>
+                      <td>TV</td>
+                      <td>20-08-2021</td>
+                      <td>20-09-2021</td>
+                      <td>INACTIVO</td>
+                  </tr>
+                  <tr>
+                     <td>478964355</td>
+                     <td>BYRON MORENO</td>
+                     <td>2365489</td>
+                     <td>75326</td>
+                     <td>COMPLETA</td>
+                     <td>27-09-2021</td>
+                     <td>27-10-2021</td>
+                     <td>ACTIVO</td>
+                  </tr>
+                  <tr>
+                      <td>748659326</td>
+                      <td>SOFIA BUSTAMANTE</td>
+                      <td>4521487</td>
+                      <td>95634</td>
+                      <td>TELEFONIA</td>
+                      <td>28-09-2021</td>
+                      <td>28-10-2021</td>
+                      <td>ACTIVO</td>
+                  </tr>
+                  <tr>
+                    <td>748659326</td>
+                    <td>SOFIA BUSTAMANTE</td>
+                    <td>4521487</td>
+                    <td>95634</td>
+                    <td>TELEFONIA</td>
+                    <td>28-09-2021</td>
+                    <td>28-10-2021</td>
+                    <td>ACTIVO</td>
+                </tr>
+                <tr>
+                    <td>1125466284</td>
+                    <td>RODOLFO ROMERO</td>
+                    <td>1684596</td>
+                    <td>12356</td>
+                    <td>TV-INTERNET</td>
+                    <td>27-09-2021</td>
+                    <td>27-10-2021</td>
+                    <td>ACTIVO</td>
+  
+                  </tr>
+              </table>
+        <hr>
+        <br>     
+        </div>
+        
+    </body>
+</html>
