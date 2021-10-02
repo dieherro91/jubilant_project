@@ -1,0 +1,130 @@
+body{
+    font-family: 'Rockwell', Courier, monospace;
+    margin: 0;
+    background: url(imagenes/edifondo.jpg);
+    background-attachment: fixed;
+}
+*{
+    box-sizing: border-box;
+}
+.logo{
+  height: 11rem;
+  text-align: center;
+}
+.contenedor{
+    width: 100%;
+    padding: 15px;
+}
+.formulario{
+    background: white;
+    margin-top: 110px;
+    padding: 2px;
+    width: 100%;
+    border-radius: 10px;
+}
+h1{
+    text-align: center;
+    font-size: 22px;
+}
+input[type="text"],
+input[type="password"]{
+    font-size: 15px;
+    font-family: 'Rockwell', Courier, monospace;
+    width: 87.92%;
+    padding: 8px;
+    border:none;
+}
+.input-contenedor{
+   margin-bottom: 10px;
+   border: 1px solid #aaa; 
+}
+i{
+    min-width: 50px;
+    text-align: center;
+    color: #999;
+}
+div.rol{
+    border: none;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+select.lista{
+    border-color: #999;
+    color:black;
+    font-family: 'Rockwell', Courier, monospace;
+    width: 102%;
+    position: relative;
+    right: 5px;
+    padding: 10px;
+    font-size: 15px;
+    height: 40px;
+}
+option{
+    border: none;
+    color: black;
+}
+.ini{
+    border:none;
+    width: 100%;
+    color:white;
+    font-size: 15px;
+    font-family: 'Rockwell', Courier, monospace;
+    background: #1a2537;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+.ini:active{
+    background: cadetblue;
+}
+p.linea{
+    text-align: center;
+}
+p{
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    color: #1a2537;
+    font-weight: 600;
+}
+a:hover{
+    color:cadeblue;
+}
+.iniciog{
+    text-align: center;
+    margin-top: 10px;
+    border:none;
+}
+button{
+    width: 100%;
+    color: white;
+}
+button.b{
+    border:none;
+    font-size: 15px;
+    font-family: 'Rockwell', Courier, monospace;
+    padding: 15px 20px;
+    background: dodgerblue;
+    border-radius: 5px;
+    cursor:pointer;
+}
+button:active{
+    background: #999;
+}
+img.g{
+    position: relative;
+    right: 1rem;
+    top:5px;
+    height: 20px;
+    border-radius: 2px;
+}
+@media(min-width:768px){
+    .formulario{
+        margin:auto;
+        width: 500px;
+        margin-top: 25px;
+    }
+}
