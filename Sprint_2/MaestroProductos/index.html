@@ -1,7 +1,9 @@
+
 <html>
     <head>
-        <title>Gestion de Usuarios</title>
+        <title>consulta de ventas</title>
         <link rel="stylesheet" type="text/css" href="styles.css">
+	
     </head>
     <body>
         
@@ -30,7 +32,7 @@
         
         
         <nav class="navbar">
-            <h1 id="titulo">Gestion de Usuarios</h1>
+            <h1 id="titulo">Registro Ventas</h1>
             <img id="logo_image" src="../assets/sica_blue.png">
             <button id="logout_button">logout</button>
             
@@ -39,22 +41,32 @@
         <br>
         <div id= "controles">
             <div class="inputs">
-                <label>Id Usuario: </label>
+                <label>Id Venta: </label>
                 <input type="number">
             </div>  
             <div class="inputs">
-                <label>Nombre Usuario: </label>
+                <label>Id Cliente: </label>
                 <input type="number">
             </div>
             <div class="inputs">
-                <label>Email: </label>
-                <input type="text">
+                <label>Fecha: </label>
+                <input type="date">
             </div>
-
-            
-            <div class="buttons_usuario">
-                <button id="modifica_usuario">Modificar</button>
-                <button id="elimina_usuario">Eliminar</button> 
+            <div class="inputs">
+                <label>Cuenta: </label>
+                <input type="number">
+            </div>
+            <div class="inputs">
+                <label>Id tipo-Pago: </label>
+                <input type="number">
+            </div>
+            <div class="inputs">
+                <label>Factura: </label>
+                <input type="number">
+            </div>
+            <div class="buttons_venta">
+                <button id="add_venta">añadir</button>
+                <button id="clean_venta">Limpiar</button> 
             </div>
              
             
@@ -63,46 +75,22 @@
         
         <br>
         <div id="table_display">
-            <table class= "table_usuarios">
+            <table class= "table_ventas">
                 <tr>
-                  <th>Id Usuario</th>
-                  <th>Nombre</th>
-                  <th>Email</th>
-                  <th>Rol</th>
-                  <th>Estado</th>
-
+                  <th>Id Venta</th>
+                  <th>Id Cliente</th>
+                  <th>Fecha</th>
+                  <th>Cuenta</th>
+                  <th>Id Forma-Pago</th>
+                  <th>Factura</th>
                 </tr>
                 <tr>
                   <td>12332</td>
-                  <td>Pepa Perez</td>
-                  <td>pperez@sicabulla.com</td>
-                  <td>Vendedor</td>
-                  <td>Activo</td>
-
-
-                </tr>
-                <tr>
-                    <td>12334</td>
-                    <td>Patricia Luna</td>
-                    <td>pluna@sicabulla.com</td>
-                    <td>Administrador</td>
-                    <td>Activo</td>
-
-                </tr>
-                <tr>
-                    <td>12335</td>
-                    <td>Juan Martinez</td>
-                    <td>jmartinez@sicabulla.com</td>
-                    <td>Vendedor</td>
-                    <td>Inactivo</td>
-
-                </tr>
-                <tr>
-                    <td>12334</td>
-                    <td>Angela Rivero</td>
-                    <td>arivero@sicabulla.com</td>
-                    <td>Administrador</td>
-                    <td>Inactivo</td>
+                  <td>1019058316</td>
+                  <td>2021-03-22</td>
+                  <td>948433095</td>
+                  <td>23</td>
+                  <td>234221</td>
 
                 </tr>
                 <tr>
@@ -111,7 +99,7 @@
                     <td>2021-03-23</td>
                     <td>942398239</td>
                     <td>22</td>
-
+                    <td>2342343</td>
                 </tr>
                 <tr>
                     <td>12334</td>
@@ -119,7 +107,7 @@
                     <td>2021-03-23</td>
                     <td>942398239</td>
                     <td>22</td>
-
+                    <td>2342343</td>
                 </tr>
                 <tr>
                     <td>12334</td>
@@ -127,7 +115,7 @@
                     <td>2021-03-23</td>
                     <td>942398239</td>
                     <td>22</td>
-
+                    <td>2342343</td>
                 </tr>
                 <tr>
                     <td>12334</td>
@@ -135,7 +123,7 @@
                     <td>2021-03-23</td>
                     <td>942398239</td>
                     <td>22</td>
-
+                    <td>2342343</td>
                 </tr>
                 <tr>
                     <td>12334</td>
@@ -143,7 +131,7 @@
                     <td>2021-03-23</td>
                     <td>942398239</td>
                     <td>22</td>
-
+                    <td>2342343</td>
                 </tr>
                 <tr>
                     <td>12334</td>
@@ -151,7 +139,7 @@
                     <td>2021-03-23</td>
                     <td>942398239</td>
                     <td>22</td>
-
+                    <td>2342343</td>
                 </tr>
                 <tr>
                     <td>12334</td>
@@ -159,7 +147,7 @@
                     <td>2021-03-23</td>
                     <td>942398239</td>
                     <td>22</td>
-
+                    <td>2342343</td>
                 </tr>
                 <tr>
                     <td>12334</td>
@@ -167,7 +155,7 @@
                     <td>2021-03-23</td>
                     <td>942398239</td>
                     <td>22</td>
-
+                    <td>2342343</td>
                 </tr>
                 <tr>
                     <td>12334</td>
@@ -175,9 +163,74 @@
                     <td>2021-03-23</td>
                     <td>942398239</td>
                     <td>22</td>
-
+                    <td>2342343</td>
                 </tr>
-    
+                <tr>
+                    <td>12334</td>
+                    <td>1024324326</td>
+                    <td>2021-03-23</td>
+                    <td>942398239</td>
+                    <td>22</td>
+                    <td>2342343</td>
+                </tr>
+                <tr>
+                    <td>12334</td>
+                    <td>1024324326</td>
+                    <td>2021-03-23</td>
+                    <td>942398239</td>
+                    <td>22</td>
+                    <td>2342343</td>
+                </tr>
+                <tr>
+                    <td>12334</td>
+                    <td>1024324326</td>
+                    <td>2021-03-23</td>
+                    <td>942398239</td>
+                    <td>22</td>
+                    <td>2342343</td>
+                </tr>
+                <tr>
+                    <td>12334</td>
+                    <td>1024324326</td>
+                    <td>2021-03-23</td>
+                    <td>942398239</td>
+                    <td>22</td>
+                    <td>2342343</td>
+                </tr>
+                <tr>
+                    <td>12334</td>
+                    <td>1024324326</td>
+                    <td>2021-03-23</td>
+                    <td>942398239</td>
+                    <td>22</td>
+                    <td>2342343</td>
+                </tr>
+                <tr>
+                    <td>12334</td>
+                    <td>1024324326</td>
+                    <td>2021-03-23</td>
+                    <td>942398239</td>
+                    <td>22</td>
+                    <td>2342343</td>
+                </tr>
+                <tr>
+                    <td>12334</td>
+                    <td>1024324326</td>
+                    <td>2021-03-23</td>
+                    <td>942398239</td>
+                    <td>22</td>
+                    <td>2342343</td>
+                </tr>
+                <tr>
+                    <td>12334</td>
+                    <td>1024324326</td>
+                    <td>2021-03-23</td>
+                    <td>942398239</td>
+                    <td>22</td>
+                    <td>2342343</td>
+                </tr>
+
+                
               </table>
         <hr>
         <br>     
