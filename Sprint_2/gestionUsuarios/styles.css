@@ -126,7 +126,7 @@ margin-top: 20px;
   left: var(--sidebar_length);
   width: 79%;
   top:27.7%;
-  height: 18%;
+  height: 20%;
   background-color:#76c9f8;
   border: 1px solid;
 }
@@ -143,28 +143,30 @@ input{
   position: relative;
   display: block;
   float:left;
-  margin:1%;
+  margin:2%;
   padding: 1%;
   background: #eee;
-  height:15%;
-  width: 26%;
+  height:50px;
+  width: 400px;
   
 }
 .buttons_venta{
-  position: absolute;
+  position: relative;
   top:20%;
-  right: 0;
+  right: 10%;
 }
 #add_venta{
+  position:relative;
   margin: 5%;
   padding:2%;
-  width: 70%;
+  width: 30%;
   top:30px;
 }
 #clean_venta{
+  position:relative;
   margin: 5%;
   padding:2%;
-  width: 70%;
+  width: 30%;
 }
 #table_display{
   overflow:auto;
@@ -212,6 +214,7 @@ input{
   margin: 5%;
   padding:2%;
   width: 70%;
+  top:30px;
 }
 
 .table_usuarios{
@@ -232,4 +235,31 @@ input{
 .table_usuarios td{
   text-align: center;
   
+}
+#modifuser{
+  position: relative;
+  left: var(--sidebar_length);
+  top: 250px;
+  width: 80%;
+  height: 60%;
+  padding-top: 10px;
+}
+
+#botconf{
+  position: relative;
+  left: var(--sidebar_length);
+  margin: 15%;
+  padding: 20%;
+  width: 40%;
+  height: 20%;
+  top:200px;
+  right: 0%;
+}
+#botones{
+  position: relative;
+  left: var(--sidebar_length);
+  top: 50px;
+  width: 50%;
+  height: 10%;
+  padding-top: 10px;
 }
