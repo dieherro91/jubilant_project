@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Gestion de Usuarios</title>
-        <title>Modificación</title>
+        <title>Modificacion</title>
         <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
     <body>
@@ -45,52 +45,41 @@
             </div>  
             <div class="inputs">
                 <label>Nombre Usuario: </label>
-                <input type="">
+                <input type="number">
             </div>
             <div class="inputs">
                 <label>Email: </label>
-                <input type="email">
+                <input type="text">
+//*            </div>
+            <div class="inputs">
+                <label>Rol Usuario: </label>
+                <input type="text">
             </div>
-            <br>
+            <div class="inputs">
+                <label>Estado Usuario: </label>
+                <input type="text">
+            </div>
+*//            
             <div class="buttons_usuario">
-                <button>Buscar     </button>
-                <button>Eliminar   </button> 
+                <button id="modifica_usuario">Buscar</button>
+                <button id="elimina_usuario">Eliminar</button> 
             </div>
-        </div>
-
-
-        <div id="modifuser"> 
-            <h1>
-                <label for="name">Datos a modificar</label><br /> 
-            </h1> 
-            <FORM class="inputs">
-                Nombre <input type="text" name= "form_name" style= "width: 230px;"><br><br>
-            </FORM>
-            <form class="inputs">  
-                Rol (Ventas/Administracion) <input type="text" name= "form_rol" ><br><br>
-            </form>
-            <form class="inputs">   
+            <FORM>
+                Nombre <input type="text" name= "form_name"><br><br>
+                Rol <input type="text" name= "form_rol"><br><br>
                 Email <input type="email" name= "form_email"><br><br>
+                <input type="submit" value="Confirmar">
             </FORM>
-            <form class="inputs">  
-                Estado (Activo/Inactivo) <input type="text" name= "form_estado" style= "width: 230px;" ><br><br>
-            </form>
-            <br>
             
-        </div>
-        <div id="botones">
-<<<<<<< HEAD
-            <button>Confirmar</button>
-            <button>Cancelar</button>
-=======
-            <button>Confirmar  </button>
-            <button>Cancelar   </button>
->>>>>>> 639d4f893886acb53505ecb65912c0f042ceb11a
+                    
         </div>
         
-        
-        <br>   
+        <br>
+        <div id="table_display">
+            
+        <hr>
         <br>     
-       
+        </div>
+        
     </body>
 </html>
