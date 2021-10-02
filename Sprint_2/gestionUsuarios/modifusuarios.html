@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <title>Gestion de Usuarios</title>
+        <title>Modificación</title>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+        
+        <aside class="sidebar">
+            <nav class="nav">
+                <div id="user_block">
+                    <img id="user_image" src="../assets/silueta.jpg">
+                    <h5 id="user_name">Usuario 1</h5>
+                    <h6 id="status_name">admin</h6>
+                </div>
+                <hr>
+                <ul>
+                    <li><a href="home.html">home</a></li>
+                    <li><a href="registro_productos.html">Productos</a></li>
+                    <li><a href="registro_ventas.html">Ventas</a></li>
+                    <li><a href="control_usuarios.html">Usuarios</a></li>
+                </ul>  
+            </nav>
+            <nav class="nav_botton">
+                <ul>
+                    <li><a href="about_us.html">about us</a></li>
+                </ul>
+            </nav>
+            
+        </aside>
+        
+        
+        <nav class="navbar">
+            <h1 id="titulo">Gestion de Usuarios</h1>
+            <img id="logo_image" src="../assets/sica_blue.png">
+            <button id="logout_button">logout</button>
+            
+        </nav>
+        
+        <br>
+        <div id= "controles">
+            <div class="inputs">
+                <label>Id Usuario: </label>
+                <input type="number">
+            </div>  
+            <div class="inputs">
+                <label>Nombre Usuario: </label>
+                <input type="">
+            </div>
+            <div class="inputs">
+                <label>Email: </label>
+                <input type="email">
+            </div>
+            <br>
+            <div id="botones">
+                <button>Buscar</button>
+                <button>Eliminar</button> 
+            </div>
+            <br>
+        </div>
+        <div id="modifuser"> 
+            <h1>
+                <label for="name">Datos a modificar</label><br /> 
+            </h1> 
+            <FORM class="inputs">
+                Nombre <input type="text" name= "form_name" style= "width: 230px;"><br><br>
+            </FORM>
+            <form class="inputs">  
+                Rol (Ventas/Administracion) <input type="text" name= "form_rol" ><br><br>
+            </form>
+            <form class="inputs">   
+                Email <input type="email" name= "form_email"><br><br>
+            </FORM>
+            <form class="inputs">  
+                Estado (Activo/Inactivo) <input type="text" name= "form_estado" style= "width: 230px;" ><br><br>
+            </form>
+            <br>
+            
+        </div>
+        <div id="botones">
+            <button>Confirmar</button>
+            <button>Cancelar</button>
+        </div>
+        
+        
+        <br>   
+        <br>     
+       
+    </body>
+</html>
