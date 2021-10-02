@@ -1,98 +1,130 @@
-
-.cuadro{
-    position: relative;
-    left:50% ;
-    
-}
-.details{
-    position: relative;
-    bottom: 6rem;
-    left:50% ;
-    
-}
-.titulo{
-    bottom: 4rem;
-    margin-bottom: 4rem;
+body{
     font-family: 'Rockwell', Courier, monospace;
+    margin: 0;
+    background: url(imagenes/edifondo.jpg);
+    background-attachment: fixed;
 }
-
-.login{
+*{
+    box-sizing: border-box;
+}
+.logo{
+  height: 11rem;
+  text-align: center;
+}
+.contenedor{
+    width: 100%;
+    padding: 15px;
+}
+.formulario{
+    background: white;
+    margin-top: 110px;
+    padding: 2px;
+    width: 100%;
+    border-radius: 10px;
+}
+h1{
+    text-align: center;
+    font-size: 22px;
+}
+input[type="text"],
+input[type="password"]{
+    font-size: 15px;
+    font-family: 'Rockwell', Courier, monospace;
+    width: 87.92%;
+    padding: 8px;
+    border:none;
+}
+.input-contenedor{
+   margin-bottom: 10px;
+   border: 1px solid #aaa; 
+}
+i{
+    min-width: 50px;
+    text-align: center;
+    color: #999;
+}
+div.rol{
+    border: none;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+select.lista{
+    border-color: #999;
+    color:black;
+    font-family: 'Rockwell', Courier, monospace;
+    width: 102%;
     position: relative;
-    bottom:3rem;
-    left: 2.8rem;
+    right: 5px;
+    padding: 10px;
+    font-size: 15px;
+    height: 40px;
 }
-
-.usuario{
-    margin: 1rem;
-}
-.lista{
-    position: relative;
-    bottom: 1rem;
-    margin:1rem;
-}
-.contra{
-    margin: 1rem;
-}
-
-.contra2{
-    position: relative;
-    left:1.2rem;    
-    width: 16rem;
-    height: 2rem;
-    font-size: medium;
-}
-.usua{
-    position: relative;
-    left:1.2rem;
-    width: 16rem;
-    height: 2rem;
-    font-size:medium;
-}
-
-.lista{
-    position: relative;
-    left:1.2rem;
-    width: 16.5rem;
-    height: 2.5rem;
-    font-size: medium;
-}
-select{
-    font-family:'Rockwell', Courier, monospace;
+option{
+    border: none;
+    color: black;
 }
 .ini{
-position: relative;
-left:2.3rem;
-width: 16.6rem;
-height: 3rem;
-background-color: darkorange;
-color: black;
-font-size: large;
+    border:none;
+    width: 100%;
+    color:white;
+    font-size: 15px;
+    font-family: 'Rockwell', Courier, monospace;
+    background: #1a2537;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    
 }
 .ini:active{
-    background-color: darkgray;
-}
-input{
-    font-family: 'Rockwell', Courier, monospace;
+    background: cadetblue;
 }
 p.linea{
-    position: relative;
-    right: 3rem;
+    text-align: center;
 }
-.crear{
-    position: relative;
-    bottom: 1rem;
-    left: 2rem;
-    font-family:'Rockwell', Courier, monospace;
+p{
+    text-align: center;
 }
-.recor{
-    font-family:'Rockwell', Courier, monospace;
-}
-.olvido{
-    font-family:'Rockwell', Courier, monospace;
-}
+
 a{
     text-decoration: none;
+    color: #1a2537;
+    font-weight: 600;
 }
 a:hover{
-    color: rgb(54, 2, 92);
+    color:cadeblue;
+}
+.iniciog{
+    text-align: center;
+    margin-top: 10px;
+    border:none;
+}
+button{
+    width: 100%;
+    color: white;
+}
+button.b{
+    border:none;
+    font-size: 15px;
+    font-family: 'Rockwell', Courier, monospace;
+    padding: 15px 20px;
+    background: dodgerblue;
+    border-radius: 5px;
+    cursor:pointer;
+}
+button:active{
+    background: #999;
+}
+img.g{
+    position: relative;
+    right: 1rem;
+    top:5px;
+    height: 20px;
+    border-radius: 2px;
+}
+@media(min-width:768px){
+    .formulario{
+        margin:auto;
+        width: 500px;
+        margin-top: 25px;
+    }
 }
