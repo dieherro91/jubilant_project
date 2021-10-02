@@ -201,8 +201,8 @@ input{
 }
 .buttons_usuario{
   position: absolute;
-  top:20%;
-  right: 0;
+  top: 75%;
+  right: 1250;
 }
 #modifica_usuario{
   margin: 5%;
