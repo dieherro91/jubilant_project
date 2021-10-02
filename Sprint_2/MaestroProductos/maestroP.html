@@ -1,0 +1,157 @@
+<!doctype html>
+<html class="no-js" lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Sicabulla</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href= "css/bootstrap.min.css">
+    <link rel="stylesheet" href= "css/metisMenu.css">
+    <!-- amchart css -->
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css"
+        media="all" />
+
+    <!-------- datatable-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.jqueryui.min.css">
+    <!-- others css -->
+    <link rel="stylesheet" href="css/typography.css">
+    <link rel="stylesheet" href="css/default-css.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+
+</head>
+
+<body>
+      
+    <aside class="sidebar">
+        <nav class="nav">
+            <div id="user_block">
+                <img id="user_image" src="../assets/silueta.jpg">
+                <h5 id="user_name">Usuario 1</h5>
+                <h6 id="status_name">admin</h6>
+            </div>
+            <hr>
+            <ul>
+                <li><a href="home.html">home</a></li>
+                <li><a href="registro_productos.html">Productos</a></li>
+                <li><a href="registro_ventas.html">Ventas</a></li>
+                <li><a href="control_usuarios.html">Usuarios</a></li>
+            </ul>  
+        </nav>
+        <nav class="nav_botton">
+            <ul>
+                <li><a href="about_us.html">about us</a></li>
+            </ul>
+        </nav>
+        
+    </aside>
+    
+    
+    <nav class="navbar">
+        <h1 id="titulo">Maestro Productos</h1>
+        <img id="logo_image" src="../assets/sica_blue.png">
+        <button id="logout_button">logout</button>
+        
+    </nav>
+<br>
+<br><br>
+<br><br><br>
+<div id="table_display">
+
+<div class="main-content-inner">
+    <!-- sales report area start -->
+    <div class="sales-report-area mt-5 mb-5">
+        <div class="row">
+
+
+            <!-- Dark table start -->
+            <div class="col-12 mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="header-title">Maestro de Productos</h4>
+                        <div class="data-tables datatable-dark">
+                            <table id="dataTable3" class="text-center">
+                                <thead class="text-capitalize">
+                                    <tr>
+                                        <th>Servicio</th>
+                                        <th>Identificacón</th>
+                                        <th>Fecha </th>
+                                        <th>Valor</th>
+                                        <th>Comentario</th>
+                                        <th>Estado</th>
+                                        <th>Opciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Internet </td>
+                                        <td>04127</td>
+                                        <td>24/09/2021</td>
+                                        <td>20000</td>
+                                        <td>4mb de subida</td>
+                                        <td class="badge badge-info">
+                                            <p >Activo</p>
+                                        </td>
+
+                                        <td>
+                                            <a href="" class="badge badge-success"> Editar <i class="ti-pencil-alt"></i></a>
+                                            <a href="" class="badge badge-danger"> Eliminar <i class="ti-trash"></i></a>
+                                            <a href=""class="badge badge-warning" > Facturar <i class="ti-import"></i></a>
+                                        </td>
+
+
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-rounded btn-primary mb-3"><a href="{% url 'gimnasio:generarExcel' %}"> <p>Descargar excel</p> </a></button>
+
+                </div>
+            </div>
+            <!-- Dark table end -->
+        </div>
+
+        <!-- sales report area end -->
+        <!-- overview area start -->
+
+
+
+    </div>
+
+</div>
+</div>
+
+
+    <!-- offset area end -->
+    <!-- jquery latest version -->
+    <script src="js/vendor/jquery-2.2.4.min.js"></script>
+    <!-- bootstrap 4 js -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/metisMenu.min.js"></script>
+    <script src="js/jquery.slimscroll.min.js"></script>
+    <script src="js/jquery.slicknav.min.js"></script>
+
+   
+    <!-- all line chart activation -->
+    <!-- all pie chart -->
+    <!-- Start datatable js -->
+    <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <!-- others plugins -->
+
+    <script src="js/scripts.js"></script>
+
+</body>
+
+</html>
