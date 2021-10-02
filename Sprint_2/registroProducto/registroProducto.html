@@ -3,9 +3,88 @@
 <head>
     <title>Registro de Servicio</title>
     <link rel="stylesheet" type="text/css" href="stylesRegistroProductos.css">
+
+    <style>
+        /* Popup container - can be anything you want */
+        .popup {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* The actual popup */
+        .popup .popuptext {
+            visibility: hidden;
+            width: 160px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -80px;
+        }
+
+        /* Popup arrow */
+        .popup .popuptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        /* Toggle this class - hide and show the popup */
+        .popup .show {
+            visibility: visible;
+            -webkit-animation: fadeIn 1s;
+            animation: fadeIn 1s;
+        }
+
+        /* Add animation (fade in the popup) */
+        @-webkit-keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+
+    
 </head>
 
 <body>
+
+    <script>
+        // When the user clicks on <div>, open the popup
+        function myFunction() {
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+        }
+    </script>
 
     <aside class="sidebar">
         <nav class="nav">
@@ -55,7 +134,7 @@
         <div class="inputDescripcion">
             <label>Descripcion del Servicio: </label>
             <textarea name="Descripcion" id="" cols="20" rows="5"></textarea>
-            
+
         </div>
         <div class="inputs">
             <label>Valor Unitario: </label>
@@ -64,180 +143,22 @@
         </div>
         <div class="inputs">
             <label>Estado: </label>
-                <select name="Estado" id="cars">
+            <select name="Estado" id="cars">
                 <option value="Seleccione">Seleccione una opcion</option>
                 <option value="activo">Activo</option>
                 <option value="noActivo">No activo</option>
-                </select>
+            </select>
         </div>
         <div class="buttons_venta">
-            <button id="add_venta">Añadir Servicio</button>
+            <!-- <button id="add_venta">Añadir Servicio</button> -->
+
+            <div class="popup" onclick="myFunction()">Añadir Servicio
+                <button class="popuptext" id="myPopup">SERVICIO FUE ANADIDO</button>
+            </div>
+
             <button id="clean_venta">Limpiar</button>
         </div>
 
-
-<!-- 
-    </div>
-    <br>
-    <div id="table_display">
-        <table class="table_ventas">
-            <tr>
-                <th>Id Venta</th>
-                <th>Id Cliente</th>
-                <th>Fecha</th>
-                <th>Cuenta</th>
-                <th>Id Forma-Pago</th>
-                <th>Factura</th>
-            </tr>
-            <tr>
-                <td>12332</td>
-                <td>1019058316</td>
-                <td>2021-03-22</td>
-                <td>948433095</td>
-                <td>23</td>
-                <td>234221</td>
-            </tr>
-            <tr>
-                <td>12334</td>
-                <td>1024324326</td>
-                <td>2021-03-23</td>
-                <td>942398239</td>
-                <td>22</td>
-                <td>2342343</td>
-            </tr>
-            <tr>
-                <td>12334</td>
-                <td>1024324326</td>
-                <td>2021-03-23</td>
-                <td>942398239</td>
-                <td>22</td>
-                <td>2342343</td>
-            </tr>
-            <tr>
-                <td>12334</td>
-                <td>1024324326</td>
-                <td>2021-03-23</td>
-                <td>942398239</td>
-                <td>22</td>
-                <td>2342343</td>
-            </tr>
-            <tr>
-                <td>12334</td>
-                <td>1024324326</td>
-                <td>2021-03-23</td>
-                <td>942398239</td>
-                <td>22</td>
-                <td>2342343</td>
-            </tr>
-            <tr>
-                <td>12334</td>
-                <td>1024324326</td>
-                <td>2021-03-23</td>
-                <td>942398239</td>
-                <td>22</td>
-                <td>2342343</td>
-            </tr>
-            <tr>
-                <td>12334</td>
-                <td>1024324326</td>
-                <td>2021-03-23</td>
-                <td>942398239</td>
-                <td>22</td>
-                <td>2342343</td>
-            </tr>
-            <tr>
-                <td>12334</td>
-                <td>1024324326</td>
-                <td>2021-03-23</td>
-                <td>942398239</td>
-                <td>22</td>
-                <td>2342343</td>
-            </tr>
-            <tr>
-                <td>12334</td>
-                <td>1024324326</td>
-                <td>2021-03-23</td>
-                <td>942398239</td>
-                <td>22</td>
-                <td>2342343</td>
-            </tr>
-            <tr>
-                <td>12334</td>
-                <td>1024324326</td>
-                <td>2021-03-23</td>
-                <td>942398239</td>
-                <td>22</td>
-                <td>2342343</td>
-            </tr>
-            <tr>
-                <td>12334</td>
-                <td>1024324326</td>
-                <td>2021-03-23</td>
-                <td>942398239</td>
-                <td>22</td>
-                <td>2342343</td>
-            </tr>
-            <tr>
-                <td>12334</td>
-                <td>1024324326</td>
-                <td>2021-03-23</td>
-                <td>942398239</td>
-                <td>22</td>
-                <td>2342343</td>
-            </tr>
-            <tr>
-                <td>12334</td>
-                <td>1024324326</td>
-                <td>2021-03-23</td>
-                <td>942398239</td>
-                <td>22</td>
-                <td>2342343</td>
-            </tr>
-            <tr>
-                <td>12334</td>
-                <td>1024324326</td>
-                <td>2021-03-23</td>
-                <td>942398239</td>
-                <td>22</td>
-                <td>2342343</td>
-            </tr>
-            <tr>
-                <td>12334</td>
-                <td>1024324326</td>
-                <td>2021-03-23</td>
-                <td>942398239</td>
-                <td>22</td>
-                <td>2342343</td>
-            </tr>
-            <tr>
-                <td>12334</td>
-                <td>1024324326</td>
-                <td>2021-03-23</td>
-                <td>942398239</td>
-                <td>22</td>
-                <td>2342343</td>
-            </tr>
-            <tr>
-                <td>12334</td>
-                <td>1024324326</td>
-                <td>2021-03-23</td>
-                <td>942398239</td>
-                <td>22</td>
-                <td>2342343</td>
-            </tr>
-            <tr>
-                <td>12334</td>
-                <td>1024324326</td>
-                <td>2021-03-23</td>
-                <td>942398239</td>
-                <td>22</td>
-                <td>2342343</td>
-            </tr>
-        </table>
-        <hr>
-        <br>
-    </div>
- -->
 </body>
 
 </html>
