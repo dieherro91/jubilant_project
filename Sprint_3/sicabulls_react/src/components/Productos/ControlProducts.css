@@ -1,0 +1,68 @@
+/* variables globales*/
+@import '../Header/Header.css';
+/* */
+#titulo_funcion_Products{
+    position:absolute;
+    left: var(--padding_sidevar);
+    right: var(--margin_top);
+    top:8rem;
+    color:#76c9f8;
+}
+#titulo_app_Products{
+    
+    
+    
+}
+#nav_buttons_Products{
+    
+    
+    width:11rem;
+    right:0px;
+    
+}
+
+#controlesUsuarios{
+    position: absolute;
+    left: var(--padding_sidevar);
+    right: var(--margin_top);
+    height: 6rem;
+    top:11.5rem;
+    background-color:#76c9f8;
+}
+
+
+
+.card-body {
+    padding: 1%;
+}
+.row{
+    padding: 5px;
+}
+
+
+#table_display_users{
+    overflow:auto;
+    position: absolute;
+    left: var(--padding_sidevar);
+    right: var(--margin_top);
+    top: 15rem;
+    bottom:var(--margin_bottom);
+    z-index: 4;
+     
+}
+
+#table_display_users th{
+    position: sticky;
+    top: 0;
+    z-index: 10; 
+    background: #fff;
+    text-align: center;
+    
+}
+#table_display_users tr{
+    text-align: center;  
+}
+#table_display_users td{
+    text-align: center;
+    
+}
