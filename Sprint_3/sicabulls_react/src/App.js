@@ -2,7 +2,7 @@ import './App.css';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 
-import Header from './components/Header/Header.js'
+
 import Sidebar from './components/Sidebar/Sidebar.js'
 import Topbar from './components/Topbar/Topbar.js'
 
@@ -20,7 +20,7 @@ function App() {
     <div className="App">
 
         <Router>
-          <Header></Header>
+          
           
           <Switch>
             
@@ -60,6 +60,7 @@ function App() {
             
             <Route path="" exact>
               <Login></Login>
+              
               
               
             </Route>

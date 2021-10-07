@@ -16,6 +16,7 @@ function Sidebar() {
         )
     }
     return (
+        
         isAuthenticated && (
             <div>
                 <div className="container">
