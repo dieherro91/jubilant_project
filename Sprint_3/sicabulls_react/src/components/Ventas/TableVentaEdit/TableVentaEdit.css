@@ -1,0 +1,32 @@
+/* variables globales*/
+@import '../../Header/Header.css';
+/* */
+
+
+#table_users_int th{
+    position: sticky;
+    top: 0;
+    z-index: 10; 
+    background: #fff;
+    text-align: center;
+    border-bottom: 1px solid;
+    
+}
+#table_users_int tr{
+    text-align: center;
+}
+#table_users_int td{
+    text-align: center;
+    
+}
+#button_crear, #header_accion{
+    margin-left:5px;
+    margin-right:5px;
+}
+#actualizar_modal, #añadir_modal{
+    position:absolute;
+    left: var(--margin_top);
+    width:20rem;
+    height: 35rem;
+    z-index:20;
+}
