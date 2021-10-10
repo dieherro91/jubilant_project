@@ -1,0 +1,16 @@
+{
+  "name": "api-telecomunicacion",
+  "version": "1.0.0",
+  "description": "Puente para comunicacion con el front",
+  "main": "index.js",
+  "author": "Jhon Murillo",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^4.1.3"
+  }
+}
