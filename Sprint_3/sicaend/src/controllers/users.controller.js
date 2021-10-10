@@ -1,3 +1,4 @@
+// En el controlador es donde podemos realizar las operaciones que necesitemos a la base de datos.
 import { User } from "@auth0/auth0-spa-js";  // esto falta saber como se debe poner
 import User from "../models/User";
 import passport from "passport";
@@ -51,3 +52,19 @@ export const logout = (req, res) => {
   req.flash("success_msg", "Ud esta desconectado");
   res.redirect("/users/signin");
 };
+// modelo sencillo de la conexion
+
+'use strict';
+const express = require('express'),
+  router = express.Router(),
+  User = require('./models').User;
+
+router.route('/')
+
+    .get(function (req, res) {
+        User.find()
+        .then(function (users) {
+            res.locals.users = users;
+            return res.render('users/users.html');
+        });
+    });
