@@ -6,10 +6,15 @@ import './TableUserSearch.css'
 
 
 const TableUserSearch = () => {
+
+          
+    
+
     //this avoid to re render de exiting data every single time
     const columns = useMemo(() => COLUMNS, [])
+    
     const data = useMemo(() => MOCK_DATA, [])
-
+    
     //hook (function) and we pass and object as argument
 
     const {
@@ -19,7 +24,7 @@ const TableUserSearch = () => {
         headerGroups,
         rows,
         prepareRow,
-    } = useTable({
+    } = useTable ({
         columns,
         data
     }, useFilters, useSortBy)

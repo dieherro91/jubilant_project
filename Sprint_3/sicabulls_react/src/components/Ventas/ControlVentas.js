@@ -3,7 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import './ControlVentas.css'
 import TableVentaSearch from './TableVentaSearch/TableVentaSearch.js'
 import TableVentaEdit from './TableVentaEdit/TableVentaEdit.js'
-
+import { Tooltip } from '@material-ui/core';
 
 
 function ControlVentas() {
@@ -26,8 +26,13 @@ function ControlVentas() {
                         </div>
                         <div className="col-md-4 offset-md-4">
                             <nav id="nav_buttons_Ventas">
-                                <button onClick={() => setActive("buscar_Venta")} type="button" className="btn btn-primary">buscar</button>
-                                <button onClick={() => setActive("actualizar_Venta")} type="button" className="btn btn-primary">actualizar</button>
+                                <Tooltip title="App de busqueda" arrow>
+                                    <button onClick={() => setActive("buscar_Venta")} type="button" className="btn btn-primary">buscar</button>
+                                </Tooltip>
+                                <Tooltip title="App de edición" arrow>
+                                    <button onClick={() => setActive("actualizar_Venta")} type="button" className="btn btn-primary">actualizar</button>
+                                </Tooltip>
+                                
                             </nav>
                         </div>
                     </div>

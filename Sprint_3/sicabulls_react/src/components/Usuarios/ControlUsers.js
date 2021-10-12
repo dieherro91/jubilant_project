@@ -50,7 +50,7 @@ function ControlUsers() {
 
                     </div>
                 </div>
-            </div>
+            </div>  
         )
     )
 
