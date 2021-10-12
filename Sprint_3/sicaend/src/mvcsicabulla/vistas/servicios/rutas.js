@@ -29,7 +29,7 @@ rutasServicios.route('/servicios').post((req, res) => {
 // obtener un solo servicio
 rutasServicios.route('/servicios:id').get((req, res) => {
     consultarServicio(req.params.id, genericCallback(res));
-  });
+});
 
 rutasServicios.route('/servicios/:id').patch((req, res) => {
   editServicio(req.params.id, req.body, genericCallback(res));

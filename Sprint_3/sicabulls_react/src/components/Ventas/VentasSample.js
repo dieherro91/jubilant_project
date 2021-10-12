@@ -1,69 +1,67 @@
 import React, { useState, useEffect, useRef } from 'react'
-import './TableVentaEdit.css'
-import VentasService from '../../../conecction/VentasService'
+//import './TableVentaEdit.css'
+
+import VentasService from '../../conecction/VentasService.js'
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { nanoid } from 'nanoid';
-import { Dialog, Tooltip } from '@material-ui/core';
 
 
 
-const TableVentaEdit = () => {
+const TableVentaEdit2 = () => {
     //Estado
     const [data, setData] = useState([])
 
     //mostrartabla
     const [modalInsertar, setModalInsertar] = useState(true)
+    
+    const [ejecutarConsulta,setEjecutarConsulta]=useState(true)
 
-    const [ejecutarConsulta, setEjecutarConsulta] = useState(true)
-
-    useEffect(() => {
+    useEffect(()=>{
         async function datosAc() {
-            toast.success("Cargando registros de ventas")
             await VentasService.getAllVentas().then(function (response) {
-
                 setData(response.data);
             }).catch(function (error) {
                 console.error(error);
-                toast.error("Error cargando registros de ventas")
             });
         }
-
-        if (ejecutarConsulta) {
+        
+        if(ejecutarConsulta){
             datosAc();
             setEjecutarConsulta(false);
         }
 
-    }, [ejecutarConsulta])
+    },[ejecutarConsulta])
 
     useEffect(() => {
-        if (modalInsertar) {
+        if (modalInsertar){
             setEjecutarConsulta(true);
         }
-
+        
     }, [modalInsertar])
 
     useEffect(() => {
-
+        
     }, [])
 
 
 
     return (
         <>
-            <div shadow p-3 mb-5 bg-white rounded>
-                <div class="card">
-                    <div class="card-body">
-                        <ToastContainer position="bottom-right" />
-                        {modalInsertar ?
-                            (<TablaModules setEjecutarConsulta={setEjecutarConsulta} setModalInsertar={setModalInsertar} modalInsertar={modalInsertar} data={data} />)
-                            : (<InsertarNuevoVenta setModalInsertar={setModalInsertar} modalInsertar={modalInsertar} />)
-                        }
-                    </div>
-                </div>
-            </div>
-
-
+            {modalInsertar ?
+                (<TablaModules setEjecutarConsulta={setEjecutarConsulta} setModalInsertar={setModalInsertar} modalInsertar={modalInsertar} data={data} />)
+                : (<InsertarNuevoVenta setModalInsertar={setModalInsertar} modalInsertar={modalInsertar} />)
+            }
+            <ToastContainer
+                    position='bottom-center'
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                />
 
 
 
@@ -74,7 +72,7 @@ const TableVentaEdit = () => {
 }
 
 
-const FilaVentas = ({ setEjecutarConsulta, dato }) => {
+const FilaVentas = ({setEjecutarConsulta, dato }) => {
     const [edit, setEdit] = useState(false)
     const [infoNuevaVenta, setInfoNuevaVenta] = useState({
         id_venta: dato.id_venta,
@@ -84,7 +82,6 @@ const FilaVentas = ({ setEjecutarConsulta, dato }) => {
         iva: dato.iva,
         valor_venta: dato.valor_venta
     })
-    const [openDialog, setOpenDialog] = useState(false)
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////
     const actualizarVenta = async () => {
@@ -97,28 +94,28 @@ const FilaVentas = ({ setEjecutarConsulta, dato }) => {
             console.log(response.data)
             toast.success("venta editada con exito")
             setEdit(false);
-            setEjecutarConsulta(true);
+            setEjecutarConsulta(true); 
         }).catch(function (error) {
             console.log(error);
             toast.error('error modificando venta')
         });
     }
     //////////////////////////////////////////////////////////////////////////////////////////////////////
-    const EliminarVenta = async () => {
+    const EliminarVenta= async ()=>{
         const id = {
             id: { id: dato._id }
 
         }
-        await VentasService.remove(id).then(function (response) {
+        await VentasService.remove(id).then(function(response){
             console.log(response.data)
             toast.success("vehiculo eliminado")
             setEjecutarConsulta(true);
 
-        }).catch(function (error) {
+        }).catch(function (error){
             console.log(error);
             toast.error("vehiculo no borrado")
         });
-    }
+    } 
 
     return (
         <tr >
@@ -126,7 +123,6 @@ const FilaVentas = ({ setEjecutarConsulta, dato }) => {
                 <>
                     <td>
                         <input
-                            className="input_edicion"
                             onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, id_venta: e.target.value })}
                             type='number'
                             value={infoNuevaVenta.id_venta}>
@@ -134,7 +130,6 @@ const FilaVentas = ({ setEjecutarConsulta, dato }) => {
                     </td>
                     <td>
                         <input
-                            className="input_edicion"
                             onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, id_vendedor: e.target.value })}
                             type='number'
                             value={infoNuevaVenta.id_vendedor}>
@@ -142,7 +137,6 @@ const FilaVentas = ({ setEjecutarConsulta, dato }) => {
                     </td>
                     <td>
                         <input
-                            className="input_edicion"
                             onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, nombre_cliente: e.target.value })}
                             type='text'
                             value={infoNuevaVenta.nombre_cliente}>
@@ -150,7 +144,6 @@ const FilaVentas = ({ setEjecutarConsulta, dato }) => {
                     </td>
                     <td>
                         <input
-                            className="input_edicion"
                             onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, date: e.target.value })}
                             type='date'
                             value={infoNuevaVenta.fecha}>
@@ -158,7 +151,6 @@ const FilaVentas = ({ setEjecutarConsulta, dato }) => {
                     </td>
                     <td>
                         <input
-                            className="input_edicion"
                             onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, iva: e.target.value })}
                             type='number'
                             value={infoNuevaVenta.iva}>
@@ -166,7 +158,6 @@ const FilaVentas = ({ setEjecutarConsulta, dato }) => {
                     </td>
                     <td>
                         <input
-                            className="input_edicion"
                             onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, valor_venta: e.target.value })}
                             type='number'
                             value={infoNuevaVenta.valor_venta}>
@@ -186,40 +177,21 @@ const FilaVentas = ({ setEjecutarConsulta, dato }) => {
             }
             <td>
                 <div>
-
                     {edit ?
-                        (<Tooltip title="Confirmar" arrow>
-                            <i className="fas fa-check"
-                                onClick={() => actualizarVenta()}>
-                            </i>
-                        </Tooltip>)
-                        : (<Tooltip title="Editar" arrow >
-                            <i id="pencil"
-                                className="fas fa-pencil-alt"
-                                onClick={() => setEdit(!edit)}></i>
-                        </Tooltip>)
+                        (<i
+                            className="fas fa-check"
+                            onClick={() => actualizarVenta()}>
+
+                        </i>)
+                        : (<i
+                            className="fas fa-pencil-alt"
+                            onClick={() => setEdit(!edit)}></i>)
                     }
-                    <Tooltip title="Eliminar" arrow >
-                        <i id="trash"
 
-                            onClick={() => setOpenDialog(true)}
-                            className="fas fa-trash-alt">
-                        </i>
+                    <i
+                        onClick={()=>EliminarVenta()} className="fas fa-trash-alt">
 
-                    </Tooltip>
-                    <Dialog open={openDialog} >
-                        <div>
-                            <h4>¿Esta seguro de eliminar el registro de vehiculo?</h4>
-                            <hr></hr>
-                            <br></br>
-                            <div className="row justify-content-center">
-                                <div className="btn-group" role="group" aria-label="Basic example" id="Dialog_button_center">
-                                    <button type="button" className="btn btn-secondary" onClick={() => { EliminarVenta(); setOpenDialog(false) }}>Confirmar</button>
-                                    <button type="button" className="btn btn-danger" onClick={() => setOpenDialog(false)}>Cancelar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </Dialog>
+                    </i>
                 </div>
             </td>
         </tr>
@@ -240,15 +212,13 @@ const TablaModules = ({ setEjecutarConsulta, setModalInsertar, modalInsertar, da
                     <th>Valor Total</th>
                     <th id="header_accion">
                         Acción
-                        <Tooltip title="Crear registro" arrow placement="top">
-                            <button
-                                id="button_crear"
-                                type="button"
-                                className="btn btn-success btn-sm"
-                                onClick={() => setModalInsertar(!modalInsertar)}
+                        <button
+                            id="button_crear"
+                            type="button"
+                            className="btn btn-success btn-sm"
+                            onClick={() => setModalInsertar(!modalInsertar)}
 
-                            >Crear</button>
-                        </Tooltip>
+                        >Crear</button>
                     </th>
                 </tr>
             </thead>
@@ -256,11 +226,7 @@ const TablaModules = ({ setEjecutarConsulta, setModalInsertar, modalInsertar, da
             <tbody>
                 {data.map((dato) => {
                     return (
-                        <FilaVentas
-                            key={nanoid()}
-                            dato={dato}
-                            setEjecutarConsulta={setEjecutarConsulta}
-                        ></FilaVentas>
+                        <FilaVentas key={nanoid()} dato={dato} setEjecutarConsulta={setEjecutarConsulta} ></FilaVentas>
                     )
                 })}
             </tbody>
@@ -302,9 +268,7 @@ const InsertarNuevoVenta = ({ setModalInsertar, modalInsertar }) => {
     }
 
     return (
-        <div shadow p-3 mb-5 bg-white rounded >
-                <div class="card" id="form_ingreso">
-                    <div class="card-body">
+        < div >
             <form ref={form} onSubmit={submitForm} id="añadir_modal" >
                 {console.log("Hallo")}
                 <div>
@@ -399,13 +363,16 @@ const InsertarNuevoVenta = ({ setModalInsertar, modalInsertar }) => {
                         Cancelar
                     </button>
                 </div>
-
+                
             </form>
 
         </div >
-        </div>
-        </div>
+
 
     )
 }
-export default TableVentaEdit
+export default TableVentaEdit2
+
+
+
+
