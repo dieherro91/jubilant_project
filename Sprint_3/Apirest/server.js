@@ -285,7 +285,7 @@ app.patch('/usuarios/editar',(req,res)=>{
     );
 });
 app.delete('/usuarios/eliminar',(req,res) =>{
-    const filtroUsuarios = {_id: new ObjectId(req.body.id)};
+    const filtroServicios = {_id: new ObjectId(req.body.id)};
     conexion.collection('usuarios').deleteOne(filtroServicios,(err,result)=>{
         if (err){
             console.error(err);
