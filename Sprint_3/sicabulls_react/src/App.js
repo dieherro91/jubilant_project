@@ -9,7 +9,7 @@ import Topbar from './components/Topbar/Topbar.js'
 import Login from './components/Login/Login.js'
 import Homes from './components/Homes/Homes.js';
 import ControlVentas from './components/Ventas/ControlVentas.js'
-import ControlProducts from './components/Productos/ControlProducts.js'
+import ControlProductos from './components/Productos/ControlProductos.js'
 import ControlUsers from './components/Usuarios/ControlUsers.js'
 import AboutUs from './components/AboutUs/AboutUs';
 
@@ -34,7 +34,7 @@ function App() {
             <Route path="/Productos">
               <Sidebar></Sidebar>
               <Topbar></Topbar>
-              <ControlProducts></ControlProducts>
+              <ControlProductos></ControlProductos>
               
               
             </Route>

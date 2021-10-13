@@ -1,34 +1,34 @@
-import { ColumnFilter } from "./ColumnFilter"
+import { ColumnFilterUser } from "./ColumnFilterUser.js"
 
 export const COLUMNS =[
     {
-        Header:'ID',
+        Header:'ID Usuario',
         accessor:'id',
-        Filter:ColumnFilter,
+        Filter:ColumnFilterUser,
     },
     {
         Header:'Nombre',
         accessor:'nombre',
-        Filter:ColumnFilter,
+        Filter:ColumnFilterUser,
     },
     {
         Header:'E-mail',
         accessor:'email',
-        Filter:ColumnFilter,
+        Filter:ColumnFilterUser,
     },
     {
         Header:'Nickname',
         accessor:'nickname',
-        Filter:ColumnFilter,
+        Filter:ColumnFilterUser,
     },
     {
         Header:'Rol',
         accessor:'rol',
-        Filter:ColumnFilter,
+        Filter:ColumnFilterUser,
     },
     {
         Header:'Estado',
         accessor:'estado',
-        Filter:ColumnFilter,
+        Filter:ColumnFilterUser,
     },
 ]

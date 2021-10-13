@@ -3,7 +3,7 @@
 /* */
 
 
-#table_users_int th{
+#table_ventas_int th{
     position: sticky;
     top: 0;
     z-index: 10; 
@@ -12,10 +12,10 @@
     border-bottom: 1px solid;
     
 }
-#table_users_int tr{
+#table_ventas_int tr{
     text-align: center;
 }
-#table_users_int td{
+#table_ventas_int td{
     text-align: center;
     
 }
@@ -37,11 +37,11 @@
 .input_edicion{
     width:6rem;
 }
-#Dialog_button_center{
-    width:40%;
-}
-#form_ingreso{
-    position: absolute;
-    top:16rem;
 
+#añadir_modal{
+    width: 97% !important;
+    height: 50% !important;
+}
+#buttons_nuevo{
+    width: 25% !important;
 }

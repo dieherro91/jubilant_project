@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react'
 import './TableVentaEdit.css'
-import VentasService from '../../../conecction/VentasService'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { nanoid } from 'nanoid';
 import { Dialog, Tooltip } from '@material-ui/core';
-
+import axios from 'axios'
 
 
 const TableVentaEdit = () => {
@@ -19,9 +18,14 @@ const TableVentaEdit = () => {
 
     useEffect(() => {
         async function datosAc() {
-            toast.success("Cargando registros de ventas")
-            await VentasService.getAllVentas().then(function (response) {
+            const options = {
+                method: 'GET',
+                url: `http://localhost:5000/ventas`,
+                headers: { 'Content-Type': 'application/json' },
+            };
 
+            toast.success("Cargando registros de ventas")
+            await axios.request(options).then(function (response) {
                 setData(response.data);
             }).catch(function (error) {
                 console.error(error);
@@ -51,32 +55,39 @@ const TableVentaEdit = () => {
 
     return (
         <>
-            <div shadow p-3 mb-5 bg-white rounded>
-                <div class="card">
-                    <div class="card-body">
-                        <ToastContainer position="bottom-right" />
-                        {modalInsertar ?
-                            (<TablaModules setEjecutarConsulta={setEjecutarConsulta} setModalInsertar={setModalInsertar} modalInsertar={modalInsertar} data={data} />)
-                            : (<InsertarNuevoVenta setModalInsertar={setModalInsertar} modalInsertar={modalInsertar} />)
-                        }
-                    </div>
-                </div>
-            </div>
-
-
-
-
-
+            <ToastContainer position="bottom-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover />
+            {modalInsertar ?
+                (<TablaModules
+                    setEjecutarConsulta={setEjecutarConsulta}
+                    setModalInsertar={setModalInsertar}
+                    modalInsertar={modalInsertar} data={data}
+                    ejecutarConsulta={ejecutarConsulta}
+                />)
+                : (<InsertarNuevoVenta
+                    setModalInsertar={setModalInsertar}
+                    modalInsertar={modalInsertar}
+                    data={data}
+                    ejecutarConsulta={ejecutarConsulta}
+                    setEjecutarConsulta={setEjecutarConsulta}
+                />)
+            }
         </>
-
     )
-
 }
 
 
-const FilaVentas = ({ setEjecutarConsulta, dato }) => {
+const FilaVentas = ({ setEjecutarConsulta, dato, ejecutarConsulta }) => {
     const [edit, setEdit] = useState(false)
     const [infoNuevaVenta, setInfoNuevaVenta] = useState({
+        _id: dato._id,
         id_venta: dato.id_venta,
         id_vendedor: dato.id_vendedor,
         nombre_cliente: dato.nombre_cliente,
@@ -88,12 +99,18 @@ const FilaVentas = ({ setEjecutarConsulta, dato }) => {
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////
     const actualizarVenta = async () => {
-        console.log(infoNuevaVenta)
-        const data = {
-            data: { ...infoNuevaVenta, id: dato._id }
 
-        }
-        await VentasService.editando(data).then(function (response) {
+
+        const options = {
+            method: 'PATCH',
+            url: `http://localhost:5000/ventas/editar`,
+            headers: { 'Content-Type': 'application/json' },
+            data: { ...infoNuevaVenta },
+        };
+
+        await axios.request(options).then(function (response) {
+            console.log("actualizando")
+            console.log(infoNuevaVenta)
             console.log(response.data)
             toast.success("venta editada con exito")
             setEdit(false);
@@ -105,19 +122,26 @@ const FilaVentas = ({ setEjecutarConsulta, dato }) => {
     }
     //////////////////////////////////////////////////////////////////////////////////////////////////////
     const EliminarVenta = async () => {
-        const id = {
-            id: { id: dato._id }
+        const options = {
+            method: 'DELETE',
+            url: 'http://localhost:5000/ventas/eliminar',
+            headers: { 'Content-Type': 'application/json' },
+            data: { id: dato._id },
+        };
 
-        }
-        await VentasService.remove(id).then(function (response) {
-            console.log(response.data)
-            toast.success("vehiculo eliminado")
-            setEjecutarConsulta(true);
+        await axios
+            .request(options)
+            .then(function (response) {
+                console.log(response.data)
 
-        }).catch(function (error) {
-            console.log(error);
-            toast.error("vehiculo no borrado")
-        });
+                toast.success("Venta eliminada")
+                setEjecutarConsulta(!ejecutarConsulta);
+
+
+            }).catch(function (error) {
+                console.log(error);
+                toast.error("Venta no borrada")
+            });
     }
 
     return (
@@ -209,7 +233,7 @@ const FilaVentas = ({ setEjecutarConsulta, dato }) => {
                     </Tooltip>
                     <Dialog open={openDialog} >
                         <div>
-                            <h4>¿Esta seguro de eliminar el registro de vehiculo?</h4>
+                            <h4>¿Esta seguro de eliminar el registro de la venta?</h4>
                             <hr></hr>
                             <br></br>
                             <div className="row justify-content-center">
@@ -227,9 +251,10 @@ const FilaVentas = ({ setEjecutarConsulta, dato }) => {
     )
 }
 
-const TablaModules = ({ setEjecutarConsulta, setModalInsertar, modalInsertar, data }) => {
+const TablaModules = ({ setEjecutarConsulta, setModalInsertar, modalInsertar, data, ejecutarConsulta }) => {
+
     return (
-        <table id="table_users_int" className="table">
+        <table id="table_ventas_int" className="table">
             <thead className="table-active">
                 <tr>
                     <th>ID venta</th>
@@ -260,6 +285,7 @@ const TablaModules = ({ setEjecutarConsulta, setModalInsertar, modalInsertar, da
                             key={nanoid()}
                             dato={dato}
                             setEjecutarConsulta={setEjecutarConsulta}
+                            ejecutarConsulta={ejecutarConsulta}
                         ></FilaVentas>
                     )
                 })}
@@ -267,20 +293,19 @@ const TablaModules = ({ setEjecutarConsulta, setModalInsertar, modalInsertar, da
         </table>
     )
 }
-const InsertarNuevoVenta = ({ setModalInsertar, modalInsertar }) => {
+const InsertarNuevoVenta = ({ setModalInsertar, modalInsertar, data, setEjecutarConsulta, ejecutarConsulta }) => {
+
     const form = useRef(null)
 
     const submitForm = async (e) => {
         e.preventDefault();
         const fd = new FormData(form.current);
 
-
         const nuevaVenta = {};
         fd.forEach((value, key) => {
             nuevaVenta[key] = value;
         });
-
-        const data = {
+        const datas = {
             id_venta: nuevaVenta.id_venta,
             id_vendedor: nuevaVenta.id_vendedor,
             nombre_cliente: nuevaVenta.nombre_cliente,
@@ -288,102 +313,133 @@ const InsertarNuevoVenta = ({ setModalInsertar, modalInsertar }) => {
             iva: nuevaVenta.iva,
             valor_venta: nuevaVenta.valor_venta
         }
-        console.log('datos formulario', data);
-        await VentasService.create(data).then(function (response) {
-            console.log(response.data);
-            toast.success('Venta agragada con exito')
-            setModalInsertar(!modalInsertar)
+        var value_boll = false;
+        const duplicated = data.map((ids) => {
+            if (Number(datas.id_venta) === Number(ids.id_venta)) { //si es falso pasa a else  pero falso
+                value_boll = true;
+                console.log(value_boll)
+                console.log("qwewqe")
+            }
+            return value_boll;
+        });
+        console.log(duplicated)
+        ////////////////////
+        if (!value_boll) {
+            value_boll = false;
+            const options = {
+                method: 'POST',
+                url: 'http://localhost:5000/ventas/nuevo',
+                headers: { 'Content-Type': 'application/json' },
+                data: datas
+            }
+            await axios
+                .request(options)
+                .then(function (response) {
+                    console.log(response.data);
+                    toast.success('Venta agragada con exito')
+                    setModalInsertar(!modalInsertar)
+                    setEjecutarConsulta(!ejecutarConsulta)
 
-        }).catch(function (error) {
-            console.error(error);
-            toast.error('Error creando un venta');
+                }).catch(function (error) {
+                    console.error(error);
+                    toast.error('Error creando un venta');
 
-        })
+                });
+
+        } else {
+            toast.error('Id de venta duplicado')
+        }
     }
-
+    const id_register = (data) => {
+        let ultimoElementoJson = 0;
+        let ultimoElemento = 0;
+        try {
+            ultimoElementoJson = data[Object.keys(data).sort().reverse()[0]];
+            console.log(ultimoElementoJson[Object.keys(ultimoElementoJson).sort()[3]])
+            ultimoElemento = Number(ultimoElementoJson[Object.keys(ultimoElementoJson).sort()[3]]) + 1;
+            return ultimoElemento
+        } catch (error) {
+            ultimoElemento = 1000;
+            console.log(error)
+            return ultimoElemento
+        }
+    }
     return (
-        <div shadow p-3 mb-5 bg-white rounded >
-                <div class="card" id="form_ingreso">
-                    <div class="card-body">
-            <form ref={form} onSubmit={submitForm} id="añadir_modal" >
-                {console.log("Hallo")}
-                <div>
-                    <div><h3>Insertar Usuario</h3></div>
-                    {console.log("Hallo2")}
+        <form ref={form} onSubmit={submitForm} id="añadir_modal">
+            <div>
+                <div><h2>Insertar Venta</h2></div>
+            </div>
+            <hr/>
+            
+            <div className="form-row form-group">
+                <div className="col-md-4 mb-3">
+                    <label>
+                        ID venta:
+                    </label>
+                    <input
+                        className="form-control"
+                        name="id_venta"
+                        type="number"
+                        defaultValue={id_register(data)}
+                        required />
                 </div>
-
-                <div>
-                    <div className="form-group">
-                        <label>
-                            ID venta:
-                        </label>
-
-                        <input
-                            className="form-control"
-                            name="id_venta"
-                            type="number"
-                            required
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label>
-                            ID Vendedor:
-                        </label>
-                        <input
-                            className="form-control"
-                            name="id_vendedor"
-                            type="number"
-                            required
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label>
-                            Nombre Cliente:
-                        </label>
-                        <input
-                            className="form-control"
-                            name="nombre_cliente"
-                            type="text"
-                            required
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label>
-                            Fecha:
-                        </label>
-                        <input
-                            className="form-control"
-                            name="fecha"
-                            type="date"
-                            required
-                        />
-                    </div>
-
-                    <div className="form-group">
-                        <label>
-                            IVA:
-                        </label>
-                        <input
-                            className="form-control"
-                            name="iva"
-                            type="number"
-                            required
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label>
-                            Valor Total:
-                        </label>
-                        <input
-                            className="form-control"
-                            name="valor_venta"
-                            type="number"
-                            required
-                        />
-                    </div>
+                <div className="col-md-4 mb-3">
+                    <label>
+                        ID Vendedor:
+                    </label>
+                    <input
+                        className="form-control"
+                        name="id_vendedor"
+                        type="number"
+                        required />
                 </div>
+                <div className="col-md-4 mb-3">
+                    <label>
+                        Nombre Cliente:
+                    </label>
+                    <input
+                        className="form-control"
+                        name="nombre_cliente"
+                        type="text"
+                        required
+                    />
+                </div>
+            </div>
+            <div className="form-row form-group">
+                <div className="col-md-4 mb-3">
+                    <label>
+                        Fecha:
+                    </label>
+                    <input
+                        className="form-control"
+                        name="fecha"
+                        type="date"
+                        required />
+                </div>
+                <div className="col-md-4 mb-3">
+                    <label>
+                        IVA:
+                    </label>
+                    <input
+                        className="form-control"
+                        name="iva"
+                        type="number"
+                        required />
+                </div>
+                <div className="col-md-4 mb-3">
+                    <label>
+                        Valor Total:
+                    </label>
+                    <input
+                        className="form-control"
+                        name="valor_venta"
+                        type="number"
+                        required />
+                </div>
+            </div>
 
-                <div>
+            <div className="row justify-content-center">
+                <div class="btn-group" role="group" aria-label="Basic example" id="buttons_nuevo">
                     <button
                         type="submit"
                         className="btn btn-success"
@@ -399,12 +455,11 @@ const InsertarNuevoVenta = ({ setModalInsertar, modalInsertar }) => {
                         Cancelar
                     </button>
                 </div>
+            </div>
 
-            </form>
+        </form>
 
-        </div >
-        </div>
-        </div>
+
 
     )
 }
