@@ -19,6 +19,8 @@
     text-align: center;
     
 }
+
+
 #button_crear, #header_accion{
     margin-left:5px;
     margin-right:5px;
@@ -30,6 +32,18 @@
     height: 35rem;
     z-index:20;
 }
-h3{
-    color:#0DCAF0 !important;        
+#pencil, #trash{
+    padding-left:15%;
+    padding-right:15%;
+}
+.input_edicion{
+    width:6rem;
+}
+
+#añadir_modal{
+    width: 97% !important;
+    height: 50% !important;
+}
+#buttons_nuevo{
+    width: 25% !important;
 }

@@ -4,9 +4,10 @@ import { useTable, useSortBy, useFilters } from 'react-table'
 import { COLUMNS } from './Columns.js'
 import './TableVentaSearch.css'
 
-import VentasService from '../../../conecction/VentasService.js'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios'
+
 
 const TableVentaSearch = () => {
 
@@ -16,7 +17,14 @@ const TableVentaSearch = () => {
         
         async function DataTransfer(){
             toast.success("Cargando registros de ventas")
-            await VentasService.getAllVentas().then(function (response){
+            const options = {
+                method: 'GET',
+                url: `http://localhost:5000/ventas`,
+                headers: { 'Content-Type': 'application/json' },
+            };
+    
+            toast.success("Cargando registros de ventas")
+            await axios.request(options).then(function (response){
                 
                 setDatas(response.data);
                 

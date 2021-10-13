@@ -3,7 +3,7 @@ import './Topbar.css'
 import logo from '../assets/sica_blue.png'
 import { LogoutButton } from '../Login/LogButtoms/LogoutButton.js'
 import { useAuth0 } from "@auth0/auth0-react";
-import { Tooltip } from '@material-ui/core';
+
 
 function Topbar() {
     const { user, isAuthenticated } = useAuth0();
@@ -31,9 +31,9 @@ function Topbar() {
                                 <div className="col align-self-center">
                                     <div id="logout_box">
                                         <h5 className="user_tag" id="user_name">{user.name}</h5>
-                                        <Tooltip title="Desconectar tu cuenta">
+                                        
                                             <LogoutButton></LogoutButton>
-                                        </Tooltip>
+                                        
 
                                     </div>
                                 </div>

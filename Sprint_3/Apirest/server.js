@@ -4,7 +4,7 @@
 //Importacion de librerias
 import Express from 'express';
 import { MongoClient, ObjectId } from 'mongodb';
-
+import cors from 'cors'
 //Conexion de usuario con mongo
 const stringConexion = 
 'mongodb+srv://admin:murillo12345678@proyectosicabulla.obypw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
@@ -20,15 +20,13 @@ let conexion;
 const app = Express();
 
 app.use(Express.json());
-
+app.use(cors())
 //Consultas a la base de datos archivo ventas
 app.get('/ventas',(req,res)=>{
     console.log('Alguien hizo get en la ruta /Ventas');
     conexion
     .collection('ventas')
     .find({})
-    //limite de datos implementados
-    .limit(50)
     .toArray((err,result)=>{
         if (err){
             res.status(500).send("Error consultando los vehiculos");
@@ -53,6 +51,7 @@ app.post('/ventas/nuevo',(req,res)=>{
         Object.keys(datosVentas).includes('iva')
         ){
         //implementar codigo para crear vehiculo en la BD
+        
         conexion.collection('ventas').insertOne(datosVentas,(err,result)=>{
             if (err){
             console.error(err)
@@ -72,8 +71,9 @@ app.post('/ventas/nuevo',(req,res)=>{
 app.patch('/ventas/editar',(req,res)=>{
     const edicion = req.body;
     console.log(edicion);
-    const filtroVenta = {_id: new ObjectId(edicion.id)};
-    delete edicion.id;
+    
+    const filtroVenta = {_id: new ObjectId(edicion._id)};
+    delete edicion._id;
     const operacion = {
         $set:edicion,
     }
@@ -95,7 +95,11 @@ app.patch('/ventas/editar',(req,res)=>{
 });
 app.delete('/ventas/eliminar',(req,res) =>{
     const filtroVenta = {_id: new ObjectId(req.body.id)};
+    console.log("borrando")
+    //console.log(req)
+    console.log(req.body.id)
     conexion.collection('ventas').deleteOne(filtroVenta,(err,result)=>{
+        
         if (err){
             console.error(err);
             res.sendStatus(500);
@@ -118,14 +122,14 @@ const main = ()=>{
     });
 };
 
+
+
 //Consultas a la base de datos archivo servicios
 app.get('/servicios',(req,res)=>{
     console.log('Alguien hizo get en la ruta /Servicios');
     conexion
     .collection('servicios')
     .find({})
-    //limite de datos implementados
-    .limit(50)
     .toArray((err,result)=>{
         if (err){
             res.status(500).send("Error consultando los servicios");
@@ -170,8 +174,8 @@ app.post('/servicios/nuevo',(req,res)=>{
 app.patch('/servicios/editar',(req,res)=>{
     const edicion = req.body;
     console.log(edicion);
-    const filtroServicios = {_id: new ObjectId(edicion.id)};
-    delete edicion.id;
+    const filtroServicios = {_id: new ObjectId(edicion._id)};
+    delete edicion._id;
     const operacion = {
         $set:edicion,
     }
@@ -203,14 +207,18 @@ app.delete('/servicios/eliminar',(req,res) =>{
     });
 });
 
+
+
+
+
+
+
 //Consultas a la base de datos archivo usuarios
 app.get('/usuarios',(req,res)=>{
     console.log('Alguien hizo get en la ruta /Usuarios');
     conexion
     .collection('usuarios')
     .find({})
-    //limite de datos implementados
-    .limit(50)
     .toArray((err,result)=>{
         if (err){
             res.status(500).send("Error consultando los usuarios");
@@ -255,11 +263,11 @@ app.post('/usuarios/nuevo',(req,res)=>{
 app.patch('/usuarios/editar',(req,res)=>{
     const edicion = req.body;
     console.log(edicion);
-    const filtroUsuarios = {_id: new ObjectId(edicion.id)};
-    delete edicion.id;
+    const filtroUsuarios = {_id: new ObjectId(edicion._id)};
+    delete edicion._id;
     const operacion = {
         $set:edicion,
-    }
+    }                   
     conexion
     .collection('usuarios')
     .findOneAndUpdate(
