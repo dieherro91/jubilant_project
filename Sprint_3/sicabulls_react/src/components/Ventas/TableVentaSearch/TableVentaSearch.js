@@ -75,7 +75,7 @@ const TableVentaSearch = () => {
                                         <div className="row">
                                             <div className="col align-self-center">
                                                 <span>
-                                                    {column.render('Header')}{column.isSorted ? (column.isSortedDesc ? ' 🔻 ' : ' 🔺') : ''}
+                                                    {column.render('Header')}{column.isSorted ? (column.isSortedDesc ? ' 🔻 ' : ' 🔺') : ' '}
                                                 </span>
                                             </div>
                                         </div>

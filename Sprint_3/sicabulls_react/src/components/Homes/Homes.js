@@ -1,17 +1,12 @@
 import React from 'react'
-import { useAuth0 } from "@auth0/auth0-react";
 import logo from '../assets/sica_blue.png'
 import './Homes.css'
+import PrivateRoute from '../Login/PrivateRoute.js'
 
 function Homes() {
-    const {isAuthenticated,isLoging}=useAuth0();
-    if(isLoging){
-        //load message
-        return (<div>Loading...</div>) 
-    }
-
+    
     return (
-        isAuthenticated &&(
+        <PrivateRoute>
             <div>
                 <div className="homes-container">
                     <img id="logo_sica" className="img-resp" src={logo} alt="logo"/>
@@ -21,9 +16,9 @@ function Homes() {
                     </p>
                 </div>
             </div>
-            
+        </PrivateRoute>
             )
-        )
+        
 }
 
 export default Homes

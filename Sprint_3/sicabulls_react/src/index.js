@@ -8,9 +8,10 @@ import {Auth0Provider} from '@auth0/auth0-react'
 ReactDOM.render(
   <React.StrictMode>
     <Auth0Provider
-      domain="dev-jqma1dar.us.auth0.com"
-      clientId="plBHWsDQsDlnBbgZB7uZJX3HqRxpjdPT"
-      redirectUri={window.location.origin}>
+      domain="misiontic-sicabulla.us.auth0.com"
+      clientId="Bhbs7GkVqmyBPH6GYm8kLX20aEV6s6BI"
+      redirectUri={window.location.origin}
+      audience='api-autenticacion-mintic'>
       
       <App />
     </Auth0Provider>

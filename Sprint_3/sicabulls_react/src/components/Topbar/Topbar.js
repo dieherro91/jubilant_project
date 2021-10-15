@@ -10,7 +10,7 @@ function Topbar() {
     if (!isAuthenticated) {
         return (
             <div>
-                <h3>Sin credenciales</h3>
+                
             </div>
         )
     }

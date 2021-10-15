@@ -1,23 +1,17 @@
 import React, { useState } from 'react'
-import { useAuth0 } from "@auth0/auth0-react";
+
 import './ControlUsers.css'
 import TableUserSearch from './TableUserSearch/TableUserSearch.js'
 import TableUserEdit from './TableUserEdit/TableUserEdit.js'
 import { Tooltip } from '@material-ui/core';
-
+import PrivateRoute from '../Login/PrivateRoute.js'
 
 function ControlUsers() {
-    const { isAuthenticated } = useAuth0();
+    
     const [active, setActive] = useState("buscar_Usuario");
-    if (!isAuthenticated) {
-        return (
-            <div>
-                <h3>Sin credenciales</h3>
-            </div>
-        )
-    }
+    
     return (
-        isAuthenticated && (
+        <PrivateRoute>
             <div>
                 <div className="container" id="titulo_funcion_Usuarios">
                     <div className="row">
@@ -54,7 +48,7 @@ function ControlUsers() {
 
                 </div>
             </div>
-        )
+        </PrivateRoute>
     )
 
 }

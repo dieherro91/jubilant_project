@@ -1,23 +1,17 @@
 import React, { useState } from 'react'
-import { useAuth0 } from "@auth0/auth0-react";
+
 import './ControlVentas.css'
 import TableVentaSearch from './TableVentaSearch/TableVentaSearch.js'
 import TableVentaEdit from './TableVentaEdit/TableVentaEdit.js'
 import { Tooltip } from '@material-ui/core';
-
+import PrivateRoute from '../Login/PrivateRoute.js'
 
 function ControlVentas() {
-    const { isAuthenticated } = useAuth0();
+
     const [active, setActive] = useState("buscar_Venta");
-    if (!isAuthenticated) {
-        return (
-            <div>
-                <h3>Sin credenciales</h3>
-            </div>
-        )
-    }
+
     return (
-        isAuthenticated && (
+        <PrivateRoute>
             <div>
                 <div className="container" id="titulo_funcion_Ventas">
                     <div className="row">
@@ -32,7 +26,7 @@ function ControlVentas() {
                                 <Tooltip title="App de edición" arrow>
                                     <button onClick={() => setActive("actualizar_Venta")} type="button" className="btn btn-primary">actualizar</button>
                                 </Tooltip>
-                                
+
                             </nav>
                         </div>
                     </div>
@@ -54,7 +48,7 @@ function ControlVentas() {
 
                 </div>
             </div>
-        )
+        </PrivateRoute>
     )
 
 }

@@ -20,7 +20,7 @@ let conexion;
 const app = Express();
 
 app.use(Express.json());
-app.use(cors())
+app.use(cors());
 //Consultas a la base de datos archivo ventas
 app.get('/ventas',(req,res)=>{
     console.log('Alguien hizo get en la ruta /Ventas');

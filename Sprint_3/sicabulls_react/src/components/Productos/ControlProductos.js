@@ -1,23 +1,17 @@
 import React, { useState } from 'react'
-import { useAuth0 } from "@auth0/auth0-react";
+
 import './ControlProductos.css'
 import TableProductoSearch from './TableProductoSearch/TableProductoSearch.js'
 import TableProductoEdit from './TableProductoEdit/TableProductoEdit.js'
 import { Tooltip } from '@material-ui/core';
-
+import PrivateRoute from '../Login/PrivateRoute.js'
 
 function ControlProductos() {
-    const { isAuthenticated } = useAuth0();
+    
     const [active, setActive] = useState("buscar_Producto");
-    if (!isAuthenticated) {
-        return (
-            <div>
-                <h3>Sin credenciales</h3>
-            </div>
-        )
-    }
-    return (
-        isAuthenticated && (
+    
+    return  (
+        <PrivateRoute>
             <div>
                 <div className="container" id="titulo_funcion_Productos">
                     <div className="row">
@@ -54,8 +48,8 @@ function ControlProductos() {
 
                 </div>
             </div>
+            </PrivateRoute>
         )
-    )
 
 }
 
