@@ -1,0 +1,69 @@
+/* variables globales*/
+@import '../Header/Header.css';
+/* */
+#titulo_funcion_Usuarios{
+    position:absolute;
+    top:8.5rem;
+    left: var(--padding_sidevar);
+    right: var(--margin_top);
+    padding-top: 0px !important; 
+    color:#76c9f8;
+    
+}
+
+#nav_buttons_Usuarios{
+    
+    
+    width:11rem;
+    right:0px;
+    margin-left: auto;
+    
+}
+
+#controlesUsuarios{
+    position: absolute;
+    left: var(--padding_sidevar);
+    right: var(--margin_top);
+    height: 6rem;
+    top:11.5rem;
+    background-color:#76c9f8;
+}
+
+
+
+.card-body {
+    padding: 1%;
+}
+.row{
+    padding: 5px;
+}
+
+
+#table_display_Usuarios{
+    overflow:auto;
+    position: absolute;
+    left: var(--padding_sidevar);
+    right: var(--margin_top);
+    top: 16rem;
+    bottom:var(--margin_bottom);
+    z-index: 4;
+    margin-bottom: 0px !important;
+    padding: 0px !important;
+     
+}
+
+#table_display_Usuarios th{
+    position: sticky;
+    top: 0;
+    z-index: 10; 
+    background: #fff;
+    text-align: center;
+    
+}
+#table_display_Usuarios tr{
+    text-align: center;  
+}
+#table_display_Usuarios td{
+    text-align: center;
+    
+}

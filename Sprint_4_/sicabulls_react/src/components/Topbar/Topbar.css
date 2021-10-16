@@ -1,0 +1,42 @@
+/* variables globales*/
+@import '../Header/Header.css';
+/* */
+
+
+#navbar{    
+    position:absolute;
+    top:var(--margin_top);
+    
+    left: var(--padding_sidevar);
+    right: var(--margin_top);
+    background-color:#ffffff;
+    z-index: 5;
+    
+     
+}
+#card_body_topbar{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.col{
+    padding: 0;
+    margin: 0;
+}
+#logo_image{
+    width: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;   
+}
+#titulo{
+    vertical-align:middle;
+    text-align: center;
+}
+#logout_button{
+    margin: 10px;
+}
+#logout_box{
+    float:right;
+    margin-right:2%;
+    text-align:center;
+}
