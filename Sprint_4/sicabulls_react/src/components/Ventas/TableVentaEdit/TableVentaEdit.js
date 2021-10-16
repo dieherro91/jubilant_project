@@ -5,8 +5,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import { nanoid } from 'nanoid';
 import { Dialog, Tooltip } from '@material-ui/core';
 import axios from 'axios'
+import ReactLoading from 'react-loading'
 
-const getToken =()=>{
+const getToken = () => {
     return `Bearer ${localStorage.getItem('token')}`
 }
 
@@ -18,22 +19,25 @@ const TableVentaEdit = () => {
     const [modalInsertar, setModalInsertar] = useState(true)
 
     const [ejecutarConsulta, setEjecutarConsulta] = useState(true)
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         async function datosAc() {
+            toast.info("Cargando registros de ventas")
             const options = {
                 method: 'GET',
                 url: `http://localhost:5000/ventas`,
-                headers: {'Content-Type': 'application/json', Authorization: getToken() },
+                headers: { 'Content-Type': 'application/json', Authorization: getToken() },
             };
 
-            toast.success("Cargando registros de ventas")
+            setLoading(true)
             await axios.request(options).then(function (response) {
                 setData(response.data);
             }).catch(function (error) {
                 console.error(error);
                 toast.error("Error cargando registros de ventas")
             });
+            setLoading(false)
         }
 
         if (ejecutarConsulta) {
@@ -68,12 +72,17 @@ const TableVentaEdit = () => {
                 draggable
                 pauseOnHover />
             {modalInsertar ?
-                (<TablaModules
-                    setEjecutarConsulta={setEjecutarConsulta}
-                    setModalInsertar={setModalInsertar}
-                    modalInsertar={modalInsertar} data={data}
-                    ejecutarConsulta={ejecutarConsulta}
-                />)
+                (loading ? (
+                    <ReactLoading type={'cylon'} color={'#252440'} height={'20%'} width={'40%'} />)
+                    : (
+                        <TablaModules
+                            setEjecutarConsulta={setEjecutarConsulta}
+                            setModalInsertar={setModalInsertar}
+                            modalInsertar={modalInsertar} data={data}
+                            ejecutarConsulta={ejecutarConsulta}
+                        />
+                    )
+                )
                 : (<InsertarNuevoVenta
                     setModalInsertar={setModalInsertar}
                     modalInsertar={modalInsertar}
@@ -107,7 +116,7 @@ const FilaVentas = ({ setEjecutarConsulta, dato, ejecutarConsulta }) => {
         const options = {
             method: 'PATCH',
             url: `http://localhost:5000/ventas/editar`,
-            headers: {'Content-Type': 'application/json', Authorization: getToken() },
+            headers: { 'Content-Type': 'application/json', Authorization: getToken() },
             data: { ...infoNuevaVenta },
         };
 
@@ -128,7 +137,7 @@ const FilaVentas = ({ setEjecutarConsulta, dato, ejecutarConsulta }) => {
         const options = {
             method: 'DELETE',
             url: 'http://localhost:5000/ventas/eliminar',
-            headers: {'Content-Type': 'application/json', Authorization: getToken() },
+            headers: { 'Content-Type': 'application/json', Authorization: getToken() },
             data: { id: dato._id },
         };
 
@@ -332,7 +341,7 @@ const InsertarNuevoVenta = ({ setModalInsertar, modalInsertar, data, setEjecutar
             const options = {
                 method: 'POST',
                 url: 'http://localhost:5000/ventas/nuevo',
-                headers: {'Content-Type': 'application/json', Authorization: getToken() },
+                headers: { 'Content-Type': 'application/json', Authorization: getToken() },
                 data: datas
             }
             await axios
@@ -348,7 +357,7 @@ const InsertarNuevoVenta = ({ setModalInsertar, modalInsertar, data, setEjecutar
                     toast.error('Error creando un venta');
 
                 });
-
+                setEjecutarConsulta(true);   
         } else {
             toast.error('Id de venta duplicado')
         }
@@ -372,8 +381,8 @@ const InsertarNuevoVenta = ({ setModalInsertar, modalInsertar, data, setEjecutar
             <div>
                 <div><h2>Insertar Venta</h2></div>
             </div>
-            <hr/>
-            
+            <hr />
+
             <div className="form-row form-group">
                 <div className="col-md-4 mb-3">
                     <label>
@@ -453,7 +462,8 @@ const InsertarNuevoVenta = ({ setModalInsertar, modalInsertar, data, setEjecutar
                     <button
                         type="button"
                         className="btn btn-warning"
-                        onClick={() => setModalInsertar(!modalInsertar)}
+                        onClick={() => {setModalInsertar(!modalInsertar)
+                            setEjecutarConsulta(true)}}
                     >
                         Cancelar
                     </button>
