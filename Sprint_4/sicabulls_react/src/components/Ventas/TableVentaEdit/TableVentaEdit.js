@@ -147,7 +147,7 @@ const FilaVentas = ({ setEjecutarConsulta, dato, ejecutarConsulta }) => {
                 console.log(response.data)
 
                 toast.success("Venta eliminada")
-                setEjecutarConsulta(!ejecutarConsulta);
+                setEjecutarConsulta(true);
 
 
             }).catch(function (error) {
@@ -226,7 +226,8 @@ const FilaVentas = ({ setEjecutarConsulta, dato, ejecutarConsulta }) => {
                     {edit ?
                         (<Tooltip title="Confirmar" arrow>
                             <i className="fas fa-check"
-                                onClick={() => actualizarVenta()}>
+                                onClick={() => {actualizarVenta();
+                                    setEjecutarConsulta(true);}}>
                             </i>
                         </Tooltip>)
                         : (<Tooltip title="Editar" arrow >
