@@ -3,6 +3,9 @@ import logo from '../assets/sica_blue.png'
 import './Homes.css'
 import PrivateRoute from '../Login/PrivateRoute.js'
 
+
+
+
 function Homes() {
     
     return (
