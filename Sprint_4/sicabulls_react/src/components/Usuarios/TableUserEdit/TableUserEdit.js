@@ -6,6 +6,9 @@ import { nanoid } from 'nanoid';
 import { Dialog, Tooltip } from '@material-ui/core';
 import axios from 'axios'
 
+const getToken =()=>{
+    return `Bearer ${localStorage.getItem('token')}`
+}
 
 const TableUserEdit = () => {
     //Estado
@@ -21,7 +24,7 @@ const TableUserEdit = () => {
             const options = {
                 method: 'GET',
                 url: `http://localhost:5000/usuarios`,
-                headers: { 'Content-Type': 'application/json' },
+                headers: {'Content-Type': 'application/json', Authorization: getToken() },
             };
 
             toast.success("Cargando registros de usuarios")
@@ -104,7 +107,7 @@ const FilaUsuarios = ({ setEjecutarConsulta, dato, ejecutarConsulta }) => {
         const options = {
             method: 'PATCH',
             url: `http://localhost:5000/usuarios/editar`,
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json',Authorization: getToken() },
             data: { ...infoNuevaUsuario },
         };
 
@@ -125,7 +128,7 @@ const FilaUsuarios = ({ setEjecutarConsulta, dato, ejecutarConsulta }) => {
         const options = {
             method: 'DELETE',
             url: 'http://localhost:5000/usuarios/eliminar',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {'Content-Type': 'application/json', Authorization: getToken() },
             data: { id: dato._id },
         };
 
@@ -329,7 +332,7 @@ const InsertarNuevoUsuario = ({ setModalInsertar, modalInsertar, data, setEjecut
             const options = {
                 method: 'POST',
                 url: 'http://localhost:5000/usuarios/nuevo',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {'Content-Type': 'application/json', Authorization: getToken() },
                 data: datas
             }
             await axios

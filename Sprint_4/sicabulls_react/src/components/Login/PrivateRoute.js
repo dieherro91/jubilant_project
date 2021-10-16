@@ -9,15 +9,23 @@ const PrivateRoute = ({ children }) => {
     
     useEffect(()=>{
         const fetchAuth0Token= async ()=>{
+            /*  este pedazo es para pedir de nuevo
+            if(localStorage.getItem("token")){
+                //validar fecha
+            }else{
+                // dar token osea funcion de abajo
+            }
+            */
             const accessToken= await getAccessTokenSilently({
                 audience:'api-autenticacion-mintic'
             });
-            console.log("accessToken")
-            console.log(accessToken                     );
-
+            localStorage.setItem('token',accessToken)
         };
-        fetchAuth0Token();
-    },[]);
+        if (isAuthenticated){
+            
+            fetchAuth0Token();
+        }
+    },[isAuthenticated,getAccessTokenSilently]);
 
 
  

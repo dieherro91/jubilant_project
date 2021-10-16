@@ -9,6 +9,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios'
 
 
+const getToken =()=>{
+    return `Bearer ${localStorage.getItem('token')}`
+}
+
 const TableProductoSearch = () => {
 
     const [datas,setDatas]=useState([]);
@@ -20,7 +24,7 @@ const TableProductoSearch = () => {
             const options = {
                 method: 'GET',
                 url: `http://localhost:5000/servicios`,
-                headers: { 'Content-Type': 'application/json' },
+                headers: {'Content-Type': 'application/json', Authorization: getToken()},
             };
     
             toast.success("Cargando registros de servicios")

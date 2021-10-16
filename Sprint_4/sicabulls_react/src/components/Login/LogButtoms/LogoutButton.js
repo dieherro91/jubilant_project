@@ -10,6 +10,8 @@ export const LogoutButton=()=>{
     className="btn btn-secondary" 
     to="/" 
     id="logout_button"
-    onClick={()=>logout({returnTo: window.location.origin})}
+    onClick={()=>{logout({returnTo: window.location.origin});
+                    localStorage.setItem('token',null)}
+                }
     >Logout</NavLink>
 }

@@ -6,6 +6,9 @@ import { nanoid } from 'nanoid';
 import { Dialog, Tooltip } from '@material-ui/core';
 import axios from 'axios'
 
+const getToken =()=>{
+    return `Bearer ${localStorage.getItem('token')}`
+}
 
 const TableVentaEdit = () => {
     //Estado
@@ -21,7 +24,7 @@ const TableVentaEdit = () => {
             const options = {
                 method: 'GET',
                 url: `http://localhost:5000/ventas`,
-                headers: { 'Content-Type': 'application/json' },
+                headers: {'Content-Type': 'application/json', Authorization: getToken() },
             };
 
             toast.success("Cargando registros de ventas")
@@ -104,7 +107,7 @@ const FilaVentas = ({ setEjecutarConsulta, dato, ejecutarConsulta }) => {
         const options = {
             method: 'PATCH',
             url: `http://localhost:5000/ventas/editar`,
-            headers: { 'Content-Type': 'application/json' },
+            headers: {'Content-Type': 'application/json', Authorization: getToken() },
             data: { ...infoNuevaVenta },
         };
 
@@ -125,7 +128,7 @@ const FilaVentas = ({ setEjecutarConsulta, dato, ejecutarConsulta }) => {
         const options = {
             method: 'DELETE',
             url: 'http://localhost:5000/ventas/eliminar',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {'Content-Type': 'application/json', Authorization: getToken() },
             data: { id: dato._id },
         };
 
@@ -329,7 +332,7 @@ const InsertarNuevoVenta = ({ setModalInsertar, modalInsertar, data, setEjecutar
             const options = {
                 method: 'POST',
                 url: 'http://localhost:5000/ventas/nuevo',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {'Content-Type': 'application/json', Authorization: getToken() },
                 data: datas
             }
             await axios
