@@ -75,7 +75,7 @@ const TableVentaSearch = () => {
         <div>
             <ToastContainer position="bottom-right" />
             {loading ? (
-                <ReactLoading type={'cylon'} color={'#252440'} height={'20%'} width={'40%'} />)
+                <ReactLoading id='Loadings' type={'cylon'} color={'#252440'} height={'20%'} width={'40%'} />)
                 : (
                     <table {...getTableProps()} id="table_Ventas_search" className="table">
                         <thead>
