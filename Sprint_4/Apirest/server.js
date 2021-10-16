@@ -42,6 +42,7 @@ var jwtCheck = jwt({
   issuer: 'https://misiontic-sicabulla.us.auth0.com/',
   algorithms: ['RS256']
 });
+///dasdasdasdasdas
 
 app.use(jwtCheck);
 
