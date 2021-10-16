@@ -8,6 +8,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios'
 
+const getToken =()=>{
+    return `Bearer ${localStorage.getItem('token')}`
+}
 
 const TableUserSearch = () => {
 
@@ -20,7 +23,7 @@ const TableUserSearch = () => {
             const options = {
                 method: 'GET',
                 url: `http://localhost:5000/usuarios`,
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 'Content-Type': 'application/json',Authorization: getToken() },
             };
     
             toast.success("Cargando registros de usuarios")
