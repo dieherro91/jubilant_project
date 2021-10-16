@@ -18,7 +18,7 @@ function Topbar() {
         isAuthenticated && (
             <div>
                 <div className="container">
-                    <div className="card shadow-lg bg-white rounded" id="navbar">
+                    <div className="card shadow-lg p-3 mb-5 bg-white rounded" id="navbar">
                         <div className="card-body" id="card_body_topbar">
 
                             <div className="row">
