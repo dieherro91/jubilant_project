@@ -1,0 +1,47 @@
+/* variables globales*/
+@import '../../Header/Header.css';
+/* */
+
+
+#table_Productos_int th{
+    position: sticky;
+    top: 0;
+    z-index: 10; 
+    background: #fff;
+    text-align: center;
+    border-bottom: 1px solid;
+    
+}
+#table_Productos_int tr{
+    text-align: center;
+}
+#table_Productos_int td{
+    text-align: center;
+    
+}
+#button_crear, #header_accion{
+    margin-left:5px;
+    margin-right:5px;
+}
+#actualizar_modal, #añadir_modal{
+    position:absolute;
+    left: var(--margin_top);
+    width:20rem;
+    height: 35rem;
+    z-index:20;
+}
+#pencil, #trash{
+    padding-left:15%;
+    padding-right:15%;
+}
+.input_edicion{
+    width:6rem;
+}
+
+#añadir_modal{
+    width: 97% !important;
+    height: 50% !important;
+}
+#buttons_nuevo{
+    width: 25% !important;
+}
