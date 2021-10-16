@@ -5,8 +5,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import { nanoid } from 'nanoid';
 import { Dialog, Tooltip } from '@material-ui/core';
 import axios from 'axios'
+import ReactLoading from 'react-loading'
 
-const getToken =()=>{
+const getToken = () => {
     return `Bearer ${localStorage.getItem('token')}`
 }
 
@@ -18,22 +19,25 @@ const TableProductoEdit = () => {
     const [modalInsertar, setModalInsertar] = useState(true)
 
     const [ejecutarConsulta, setEjecutarConsulta] = useState(true)
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         async function datosAc() {
+            toast.info("Cargando registros de servicios")
             const options = {
                 method: 'GET',
                 url: `http://localhost:5000/servicios`,
-                headers: {'Content-Type': 'application/json', Authorization: getToken() },
+                headers: { 'Content-Type': 'application/json', Authorization: getToken() },
             };
 
-            toast.success("Cargando registros de servicios")
+            setLoading(true)
             await axios.request(options).then(function (response) {
                 setData(response.data);
             }).catch(function (error) {
                 console.error(error);
                 toast.error("Error cargando registros de servicios")
             });
+            setLoading(false)
         }
 
         if (ejecutarConsulta) {
@@ -68,12 +72,17 @@ const TableProductoEdit = () => {
                 draggable
                 pauseOnHover />
             {modalInsertar ?
-                (<TablaModules
-                    setEjecutarConsulta={setEjecutarConsulta}
-                    setModalInsertar={setModalInsertar}
-                    modalInsertar={modalInsertar} data={data}
-                    ejecutarConsulta={ejecutarConsulta}
-                />)
+                (loading ? (
+                    <ReactLoading type={'cylon'} color={'#252440'} height={'20%'} width={'40%'} />)
+                    : (
+                        <TablaModules
+                            setEjecutarConsulta={setEjecutarConsulta}
+                            setModalInsertar={setModalInsertar}
+                            modalInsertar={modalInsertar} data={data}
+                            ejecutarConsulta={ejecutarConsulta}
+                        />
+                    )
+                )
                 : (<InsertarNuevoProducto
                     setModalInsertar={setModalInsertar}
                     modalInsertar={modalInsertar}
@@ -87,7 +96,7 @@ const TableProductoEdit = () => {
 }
 
 
-const FilaProductos = ({ setEjecutarConsulta, dato, ejecutarConsulta,setModalInsertar }) => {
+const FilaProductos = ({ setEjecutarConsulta, dato, ejecutarConsulta, setModalInsertar }) => {
     const [edit, setEdit] = useState(false)
     const [infoNuevaProducto, setInfoNuevaProducto] = useState({
         _id: dato._id,
@@ -107,8 +116,8 @@ const FilaProductos = ({ setEjecutarConsulta, dato, ejecutarConsulta,setModalIns
         const options = {
             method: 'PATCH',
             url: `http://localhost:5000/servicios/editar`,
-            headers: {'Content-Type': 'application/json', Authorization: getToken() },
-            data: { ...infoNuevaProducto},
+            headers: { 'Content-Type': 'application/json', Authorization: getToken() },
+            data: { ...infoNuevaProducto },
         };
 
         await axios.request(options).then(function (response) {
@@ -128,7 +137,7 @@ const FilaProductos = ({ setEjecutarConsulta, dato, ejecutarConsulta,setModalIns
         const options = {
             method: 'DELETE',
             url: 'http://localhost:5000/servicios/eliminar',
-            headers: {'Content-Type': 'application/json', Authorization: getToken() },
+            headers: { 'Content-Type': 'application/json', Authorization: getToken() },
             data: { id: dato._id },
         };
 
@@ -217,7 +226,7 @@ const FilaProductos = ({ setEjecutarConsulta, dato, ejecutarConsulta,setModalIns
                     {edit ?
                         (<Tooltip title="Confirmar" arrow>
                             <i className="fas fa-check"
-                                onClick={() => {actualizarProducto();setModalInsertar(true)}}>
+                                onClick={() => { actualizarProducto(); setModalInsertar(true) }}>
                             </i>
                         </Tooltip>)
                         : (<Tooltip title="Editar" arrow >
@@ -333,7 +342,7 @@ const InsertarNuevoProducto = ({ setModalInsertar, modalInsertar, data, setEjecu
             const options = {
                 method: 'POST',
                 url: 'http://localhost:5000/servicios/nuevo',
-                headers: {'Content-Type': 'application/json', Authorization: getToken() },
+                headers: { 'Content-Type': 'application/json', Authorization: getToken() },
                 data: datas
             }
             await axios
@@ -349,7 +358,7 @@ const InsertarNuevoProducto = ({ setModalInsertar, modalInsertar, data, setEjecu
                     toast.error('Error creando un servicio');
 
                 });
-
+            setEjecutarConsulta(true)
         } else {
             toast.error('Id de servicio duplicado')
         }
@@ -373,8 +382,8 @@ const InsertarNuevoProducto = ({ setModalInsertar, modalInsertar, data, setEjecu
             <div>
                 <div><h2>Insertar Servicio</h2></div>
             </div>
-            <hr/>
-            
+            <hr />
+
             <div className="form-row form-group">
                 <div className="col-md-4 mb-3">
                     <label>
@@ -454,7 +463,10 @@ const InsertarNuevoProducto = ({ setModalInsertar, modalInsertar, data, setEjecu
                     <button
                         type="button"
                         className="btn btn-warning"
-                        onClick={() => setModalInsertar(!modalInsertar)}
+                        onClick={() => {
+                            setModalInsertar(!modalInsertar)
+                            setEjecutarConsulta(true)
+                        }}
                     >
                         Cancelar
                     </button>

@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { nanoid } from 'nanoid';
 import { Dialog, Tooltip } from '@material-ui/core';
 import axios from 'axios'
+import ReactLoading from 'react-loading'
 
 const getToken =()=>{
     return `Bearer ${localStorage.getItem('token')}`
@@ -18,22 +19,25 @@ const TableUserEdit = () => {
     const [modalInsertar, setModalInsertar] = useState(true)
 
     const [ejecutarConsulta, setEjecutarConsulta] = useState(true)
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         async function datosAc() {
+            toast.info("Cargando registros de usuarios")
             const options = {
                 method: 'GET',
                 url: `http://localhost:5000/usuarios`,
                 headers: {'Content-Type': 'application/json', Authorization: getToken() },
             };
 
-            toast.success("Cargando registros de usuarios")
+            setLoading(true)
             await axios.request(options).then(function (response) {
                 setData(response.data);
             }).catch(function (error) {
                 console.error(error);
                 toast.error("Error cargando registros de usuarios")
             });
+            setLoading(false)
         }
 
         if (ejecutarConsulta) {
@@ -68,12 +72,17 @@ const TableUserEdit = () => {
                 draggable
                 pauseOnHover />
             {modalInsertar ?
-                (<TablaModules
-                    setEjecutarConsulta={setEjecutarConsulta}
-                    setModalInsertar={setModalInsertar}
-                    modalInsertar={modalInsertar} data={data}
-                    ejecutarConsulta={ejecutarConsulta}
-                />)
+                (loading ? (
+                    <ReactLoading type={'cylon'} color={'#252440'} height={'20%'} width={'40%'} />)
+                    : (
+                        <TablaModules
+                        setEjecutarConsulta={setEjecutarConsulta}
+                        setModalInsertar={setModalInsertar}
+                        modalInsertar={modalInsertar} data={data}
+                        ejecutarConsulta={ejecutarConsulta}
+                    />   
+                    )
+                )
                 : (<InsertarNuevoUsuario
                     setModalInsertar={setModalInsertar}
                     modalInsertar={modalInsertar}
@@ -348,7 +357,7 @@ const InsertarNuevoUsuario = ({ setModalInsertar, modalInsertar, data, setEjecut
                     toast.error('Error creando un usuario');
 
                 });
-
+                setEjecutarConsulta(true);
         } else {
             toast.error('Id de Usuario duplicado')
         }
@@ -453,7 +462,8 @@ const InsertarNuevoUsuario = ({ setModalInsertar, modalInsertar, data, setEjecut
                     <button
                         type="button"
                         className="btn btn-warning"
-                        onClick={() => setModalInsertar(!modalInsertar)}
+                        onClick={() => {setModalInsertar(!modalInsertar);
+                                        setEjecutarConsulta(true);}}
                     >
                         Cancelar
                     </button>
