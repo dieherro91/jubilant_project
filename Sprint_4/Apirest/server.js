@@ -12,7 +12,7 @@ const stringConexion =
 // se importan las librerias para la autenticacion
 // var jwt = require('express-jwt');
 // var jwks = require('jwks-rsa');
-        import jwt from 'express-jwt';
+import jwt from 'express-jwt';
 import jwks from 'jwks-rsa';
 
 const client = new MongoClient (stringConexion,{
@@ -21,7 +21,7 @@ const client = new MongoClient (stringConexion,{
 });
 //variable global
 let conexion;
-
+//qweqweq
 
 const app = Express();
 
