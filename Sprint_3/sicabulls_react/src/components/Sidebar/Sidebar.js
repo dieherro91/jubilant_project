@@ -8,7 +8,7 @@ function Sidebar() {
     if (!isAuthenticated) {
         return (
             <div>
-                <h3>Sin credenciales</h3>
+                
             </div>
         )
     }
@@ -17,7 +17,7 @@ function Sidebar() {
         isAuthenticated && (
             <div>
                 <div className="container">
-                    <div className="card shadow-lg bg-white rounded" id="sidebar">
+                    <div className="card shadow-lg p-3 mb-5 bg-white rounded" id="sidebar">
                         <div className="card-body">
 
                             <nav className="nav">
@@ -27,13 +27,13 @@ function Sidebar() {
                                     <h6 id="status_name">admin</h6>
                                 </div>
 
-                                <nav className="nav" id="link_sidebar">
-                                    <div className="card shadow-lg bg-white rounded" id="link_sidebar_2">
-                                        <NavLink activeClassName="active" className="btn btn-light" to="/Home" >Home</NavLink>
-                                        <NavLink activeClassName="active" className="btn btn-light" to="/Ventas">Ventas</NavLink>
-                                        <NavLink activeClassName="active" className="btn btn-light" to="/Productos">Productos</NavLink>
-                                        <NavLink activeClassName="active" className="btn btn-light" to="/Usuarios">Usuarios</NavLink>
-                                        <NavLink activeClassName="active" className="btn btn-light" to="/About_us">About us</NavLink>
+                                <nav className="navbar navbar-light bg-light justify-content-between" id="link_sidebar">
+                                    <div className="card shadow-lg bg-white rounded btn-group-vertical" id="link_sidebar_2">
+                                        <NavLink  className="btn btn-secondary" to="/Home" >Home</NavLink>
+                                        <NavLink  className="btn btn-secondary" to="/Ventas">Ventas</NavLink>
+                                        <NavLink  className="btn btn-secondary" to="/Productos">Productos</NavLink>
+                                        <NavLink  className="btn btn-secondary" to="/Usuarios">Usuarios</NavLink>
+                                        <NavLink  className="btn btn-secondary" to="/About_us">About us</NavLink>
                                     </div>
                                 </nav>
 

@@ -10,7 +10,7 @@
     width: var(--sidebar_length);
     left: var(--margin_left);
     background: #ffffff;
-    margin:0.1%;  
+    margin-bottom: 0px !important;  
 }
 
 

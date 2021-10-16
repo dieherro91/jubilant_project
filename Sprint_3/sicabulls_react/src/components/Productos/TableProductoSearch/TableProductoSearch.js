@@ -63,7 +63,7 @@ const TableProductoSearch = () => {
     }, useFilters, useSortBy)
 
     return (
-        <div>
+        <div >
             <ToastContainer position="bottom-right" />
             <table {...getTableProps()} id="table_Productos_search" className="table">
                 <thead>

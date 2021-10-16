@@ -6,10 +6,12 @@
 #navbar{    
     position:absolute;
     top:var(--margin_top);
+    
     left: var(--padding_sidevar);
     right: var(--margin_top);
     background-color:#ffffff;
     z-index: 5;
+    
      
 }
 #card_body_topbar{

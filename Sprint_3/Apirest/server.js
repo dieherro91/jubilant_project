@@ -28,6 +28,7 @@ const app = Express();
 app.use(Express.json());
 app.use(cors());
 
+
 // se trae el codigo del quickstart de la pagina auth0
 // https://manage.auth0.com/dashboard/us/misiontic-sicabulla/apis/61679f016bde8b004026c63a/quickstart
 var jwtCheck = jwt({
@@ -43,6 +44,7 @@ var jwtCheck = jwt({
 });
 
 app.use(jwtCheck);
+
 
 //Consultas a la base de datos archivo ventas
 app.get('/ventas',(req,res)=>{

@@ -11,7 +11,8 @@ import Homes from './components/Homes/Homes.js';
 import ControlVentas from './components/Ventas/ControlVentas.js'
 import ControlProductos from './components/Productos/ControlProductos.js'
 import ControlUsers from './components/Usuarios/ControlUsers.js'
-import AboutUs from './components/AboutUs/AboutUs';
+import AboutUs from './components/AboutUs/AboutUs.js';
+
 
 
 function App() {
@@ -25,31 +26,35 @@ function App() {
           <Switch>
             
             <Route path="/Home" >
+            
+              
+              <Homes></Homes>
               <Sidebar></Sidebar>
               <Topbar></Topbar>
-              <Homes></Homes>
               
             </Route>
 
             <Route path="/Productos">
+              
+              <ControlProductos></ControlProductos>
               <Sidebar></Sidebar>
               <Topbar></Topbar>
-              <ControlProductos></ControlProductos>
-              
               
             </Route>
             <Route path="/Ventas">
+              
+              <ControlVentas></ControlVentas>
               <Sidebar></Sidebar>
               <Topbar></Topbar>
-              <ControlVentas></ControlVentas>
-              
               
             </Route>
             <Route path="/Usuarios">
+              
+              <ControlUsers></ControlUsers>
               <Sidebar></Sidebar>
               <Topbar></Topbar>
-              <ControlUsers></ControlUsers>
 
+              
             </Route>
             <Route path="/About_us">
               <Sidebar></Sidebar>
@@ -59,6 +64,9 @@ function App() {
             </Route>
             
             <Route path="" exact>
+            
+              
+              
               <Login></Login>
               
               

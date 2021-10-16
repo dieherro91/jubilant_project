@@ -1,5 +1,10 @@
 import React from 'react'
-
+const style = {
+    width: '80%',
+    textAlign:'center',
+    marginLeft:'auto',
+    marginRight:'auto',
+};
 export const ColumnFilterVenta = ({column}) => {
     const { filterValue, setFilter }=column
     return (
@@ -14,7 +19,7 @@ export const ColumnFilterVenta = ({column}) => {
                 placeholder="Buscar" 
                 aria-label="Buscar" 
                 aria-describedby="basic-addon1"
-                style={{width: "100%"}}
+                style={style}
 
                 >            
             </input>
