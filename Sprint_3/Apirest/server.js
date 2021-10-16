@@ -9,6 +9,12 @@ import cors from 'cors'
 const stringConexion = 
 'mongodb+srv://admin:murillo12345678@proyectosicabulla.obypw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
+// se importan las librerias para la autenticacion
+// var jwt = require('express-jwt');
+// var jwks = require('jwks-rsa');
+import jwt from 'express.jwt';
+import jwks from 'jwks-rsa';
+
 const client = new MongoClient (stringConexion,{
     useNewUrlParser: true, 
     useUnifiedTopology: true,
@@ -21,6 +27,25 @@ const app = Express();
 
 app.use(Express.json());
 app.use(cors());
+
+
+// se trae el codigo del quickstart de la pagina auth0
+// https://manage.auth0.com/dashboard/us/misiontic-sicabulla/apis/61679f016bde8b004026c63a/quickstart
+var jwtCheck = jwt({
+    secret: jwks.expressJwtSecret({
+        cache: true,
+        rateLimit: true,
+        jwksRequestsPerMinute: 5,
+        jwksUri: 'https://misiontic-sicabulla.us.auth0.com/.well-known/jwks.json'
+  }),
+  audience: 'api-autenticacion-mintic',
+  issuer: 'https://misiontic-sicabulla.us.auth0.com/',
+  algorithms: ['RS256']
+});
+
+app.use(jwtCheck);
+
+
 //Consultas a la base de datos archivo ventas
 app.get('/ventas',(req,res)=>{
     console.log('Alguien hizo get en la ruta /Ventas');
