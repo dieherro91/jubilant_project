@@ -24,7 +24,7 @@ function Sidebar() {
                                 <div id="user_block">
                                     <img id="user_image" className="img-resp" src={user.picture} alt={user.name} />
                                     <h5 className="user_tag" id="user_name">{user.name}</h5>
-                                    <h6 id="status_name">admin</h6>
+                                    <br></br>
                                 </div>
 
                                 <nav className="navbar navbar-light bg-light justify-content-between" id="link_sidebar">

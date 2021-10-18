@@ -5,8 +5,8 @@ const getToken = () => {
 export const obtenertUsuario= async (successCallback,errorCallback) =>{
     const options = {
         method: 'GET',
-        url:'http://localhost:3000/usuarios/self',
-        Headers:{'Content-Type': 'application/json',
+        url:'http://localhost:5000/usuarios/self',
+        headers:{'Content-Type': 'application/json',
             Authorization:getToken(),
         }
     }

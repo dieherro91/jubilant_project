@@ -5,6 +5,7 @@ import TableVentaSearch from './TableVentaSearch/TableVentaSearch.js'
 import TableVentaEdit from './TableVentaEdit/TableVentaEdit.js'
 import { Tooltip } from '@material-ui/core';
 import PrivateRoute from '../Login/PrivateRoute.js'
+import PrivateComponent from '../Login/PrivateComponent.js'
 
 function ControlVentas() {
 
@@ -26,7 +27,9 @@ function ControlVentas() {
                                             <button onClick={() => setActive("buscar_Venta")} type="button" className="btn btn-primary">buscar</button>
                                         </Tooltip>
                                         <Tooltip title="App de edición" arrow>
-                                            <button onClick={() => setActive("actualizar_Venta")} type="button" className="btn btn-primary">actualizar</button>
+                                            <PrivateComponent roleList={['administrador','vendedor']}>
+                                                <button onClick={() => setActive("actualizar_Venta")} type="button" className="btn btn-primary">actualizar</button>
+                                            </PrivateComponent>
                                         </Tooltip>
 
                                     </nav>
