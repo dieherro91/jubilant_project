@@ -5,6 +5,7 @@ import TableProductoSearch from './TableProductoSearch/TableProductoSearch.js'
 import TableProductoEdit from './TableProductoEdit/TableProductoEdit.js'
 import { Tooltip } from '@material-ui/core';
 import PrivateRoute from '../Login/PrivateRoute.js'
+import PrivateComponent from '../Login/PrivateComponent.js'
 
 function ControlProductos() {
 
@@ -26,7 +27,10 @@ function ControlProductos() {
                                             <button onClick={() => setActive("buscar_Producto")} type="button" className="btn btn-primary">buscar</button>
                                         </Tooltip>
                                         <Tooltip title="App de edición" arrow>
-                                            <button onClick={() => setActive("actualizar_Producto")} type="button" className="btn btn-primary">actualizar</button>
+                                            <PrivateComponent roleList={['administrador']}>
+                                                <button onClick={() => setActive("actualizar_Producto")} type="button" className="btn btn-primary">actualizar</button>
+                                            </PrivateComponent>
+
                                         </Tooltip>
                                     </nav>
                                 </div>

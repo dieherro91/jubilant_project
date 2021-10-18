@@ -5,6 +5,8 @@ import TableUserSearch from './TableUserSearch/TableUserSearch.js'
 import TableUserEdit from './TableUserEdit/TableUserEdit.js'
 import { Tooltip } from '@material-ui/core';
 import PrivateRoute from '../Login/PrivateRoute.js'
+import PrivateComponent from '../Login/PrivateComponent.js'
+
 
 function ControlUsers() {
 
@@ -27,7 +29,9 @@ function ControlUsers() {
                                             <button onClick={() => setActive("buscar_Usuario")} type="button" className="btn btn-primary">buscar</button>
                                         </Tooltip>
                                         <Tooltip title="App de edición" arrow>
+                                            <PrivateComponent roleList={['administrador']}>
                                             <button onClick={() => setActive("actualizar_Usuario")} type="button" className="btn btn-primary">actualizar</button>
+                                            </PrivateComponent>
                                         </Tooltip>
 
                                     </nav>
@@ -59,3 +63,5 @@ function ControlUsers() {
 }
 
 export default ControlUsers;
+
+//,'pendiente'
