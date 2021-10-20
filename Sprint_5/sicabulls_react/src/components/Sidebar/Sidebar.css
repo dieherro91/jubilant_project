@@ -1,0 +1,57 @@
+/* variables globales*/
+@import '../Header/Header.css';
+/* */
+/* */
+/* */
+#sidebar {
+    position: absolute;
+    top:var(--margin_top);
+    bottom:var(--margin_bottom);
+    width: var(--sidebar_length);
+    left: var(--margin_left);
+    background: #ffffff;
+    margin-bottom: 0px !important;  
+}
+
+
+#user_block{
+    position:absolute;
+    top:1rem;
+    display: block;
+    height: 24.6575%;
+}
+#user_image{
+
+    border-radius: 50%;
+    width: 35%;
+    margin-left: 32.5%;
+}
+#user_name{
+    margin-bottom: 0px;
+    margin-top: 4.5221%;
+    text-align: center;
+}
+#status_name{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+#link_sidebar{
+    position:absolute;
+    top:12rem;
+    left:0;
+    font-size: 30px;
+    width: 100%;
+}
+#link_sidebar_2{
+    width: 100%;
+}
+.btn-light{
+    width:100%;
+}
+#nav_botton{
+    position: absolute;
+    top:25rem;
+    /*background: #480abb;*/
+    font-size: 30px;
+}
